@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SystemInput implements Input{
+public class SystemInput implements KeyboardInput{
     private String input;
 
     public String get() {

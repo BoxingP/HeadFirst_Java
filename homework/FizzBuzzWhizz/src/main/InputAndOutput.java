@@ -3,13 +3,11 @@ import java.util.*;
 
 public class InputAndOutput {
     
-    public String[] getInput(Input input) {
-        String all = input.get();
-        String[] elements= all.split("\\D");
-        return elements;
+    public String getInput(KeyboardInput keyboardInput) {
+        return keyboardInput.get();
     }
 
-    public void printOutput(String s){
-        System.out.println(s);
+    public void printOutput(String result){
+        System.out.println(result);
     }
 }

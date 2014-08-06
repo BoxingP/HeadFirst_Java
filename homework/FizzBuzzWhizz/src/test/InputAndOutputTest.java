@@ -4,25 +4,25 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class InputAndOutputTest {
     
-    private InputAndOutput io;
-    private MockSystemInput ms;
+    private InputAndOutput inputAndOutput;
+    private MockSystemInput mockSystemInput;
 
     @Before
     public void initObjects() {
-        io = new InputAndOutput();
-        ms = new MockSystemInput();
+        inputAndOutput = new InputAndOutput();
+        mockSystemInput = new MockSystemInput();
     }
 
     @Test
-    public void inputShouldBeSplitedByNonnumericCorrectly() {
-        ms.set("2i3.4 5");
-        String[] input = io.getInput(ms);
-        int result = input.length;
-        assertEquals(4, result);
+    public void inputShouldGetString() {
+        mockSystemInput.set("2 3 5");
+        String input = inputAndOutput.getInput(mockSystemInput);
+        assertThat(input, is("2 3 5"));
     }
 
     @Test
@@ -30,12 +30,12 @@ public class InputAndOutputTest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         String separator = System.getProperty("line.separator");
-        io.printOutput("FizzBuzzWhizz");
-        assertEquals("FizzBuzzWhizz"+separator, output.toString());
+        inputAndOutput.printOutput("FizzBuzzWhizz");
+        assertThat(output.toString(), is("FizzBuzzWhizz"+separator));
     }
 } 
 
-class MockSystemInput implements Input{
+class MockSystemInput implements KeyboardInput{
     private String input;
     
     public void set(String s){

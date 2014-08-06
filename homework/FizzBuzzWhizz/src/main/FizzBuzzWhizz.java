@@ -1,20 +1,19 @@
 public class FizzBuzzWhizz {
 
     public static void main(String[] args){
-        InputAndOutput io = new InputAndOutput();
-        System.out.println("Please input three different numbers:");
-        String[] specialNumber = io.getInput(new SystemInput());
+        InputAndOutput inputAndOutput = new InputAndOutput();
         
-        NumberChecker numberChecker = new NumberChecker(specialNumber);
-        while (!numberChecker.check()) {
-            System.out.println("Please reinput:");
-            specialNumber = io.getInput(new SystemInput());
+
+        Checker checker = new Checker("");
+        
+        while (!checker.check()) {
+            System.out.println("Please input special numbers which should be three different digits:");
+            checker = new Checker(inputAndOutput.getInput(new SystemInput()));
         } 
         
-        NumberChanger numberChanger = new NumberChanger(specialNumber);
-        for (int i=1;i<101;i++) { 
-            String s = numberChanger.change(i);
-            io.printOutput(s);
+        Changer changer = new Changer(checker.convertedElements);
+        for (int testNumber=1;testNumber<101;testNumber++) { 
+            inputAndOutput.printOutput(changer.change(testNumber));
         }
     }
 }

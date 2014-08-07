@@ -1,9 +1,8 @@
 public class Checker {
-    private String[] inputElements;
-    public static int[] convertedElements;
+    private int[] specialNumber;
 
-    public Checker(String inputString) {
-        inputElements = inputString.split("\\D");
+    public Checker(int[] specialNumber) {
+        this.specialNumber = specialNumber;
     }
     
     public boolean check() {
@@ -11,23 +10,14 @@ public class Checker {
     }
     
     private boolean isThree() {
-        return (inputElements.length==3);
+        return (specialNumber.length==3);
     }
 
     private boolean isDigits() {
-        convert();
-        for (int i=0;i<convertedElements.length;i++) { 
-            if (!isDigit(convertedElements[i])) {return false;}
+        for (int i=0;i<specialNumber.length;i++) { 
+            if (!isDigit(specialNumber[i])) {return false;}
         }
         return true;
-    }
-    
-    private int[] convert() {
-        convertedElements = new int[inputElements.length];
-        for (int i=0;i<convertedElements.length;i++) {
-            convertedElements[i] = Integer.parseInt(inputElements[i]);
-        }
-        return convertedElements;
     }
     
     private boolean isDigit(int number) {
@@ -35,7 +25,7 @@ public class Checker {
     }
 
     private boolean isDifferent() {
-        return (convertedElements[0]!=convertedElements[1] && convertedElements[0]!=convertedElements[2] && convertedElements[1]!=convertedElements[2]);
+        return (specialNumber[0]!=specialNumber[1] && specialNumber[0]!=specialNumber[2] && specialNumber[1]!=specialNumber[2]);
     }
 
 }

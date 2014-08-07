@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
-javac -cp ../../lib/junit-4.11.jar:../../lib/hamcrest-all-1.3.jar CheckerTest.java ../main/Checker.java
-java -cp .:../../lib/junit-4.11.jar:../../lib/hamcrest-all-1.3.jar:../../lib/hamcrest-core-1.3.jar:../main org.junit.runner.JUnitCore CheckerTest
+javac -cp .:../../lib/* CheckerTest.java ../main/Checker.java
+java -cp .:../../lib/*:../main org.junit.runner.JUnitCore CheckerTest

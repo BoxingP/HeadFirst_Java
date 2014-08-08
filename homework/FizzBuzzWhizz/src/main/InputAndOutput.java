@@ -3,8 +3,9 @@ import java.util.*;
 
 public class InputAndOutput {
     
-    public String getInput(KeyboardInput keyboardInput) {
-        return keyboardInput.get();
+    public String getInput() {
+        Scanner scanner =new Scanner(System.in);
+        return scanner.nextLine();
     }
 
     public void printOutput(String result){

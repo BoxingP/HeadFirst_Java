@@ -2,11 +2,10 @@ public class FizzBuzzWhizz {
 
     public static void main(String[] args){
         InputAndOutput inputAndOutput = new InputAndOutput();
-        int[] specialNumber;
-        
         System.out.println("Please input special numbers which should be three different digits:");
         String inputString = inputAndOutput.getInput();
-        specialNumber = new Converter(inputString).convert();
+        
+        int[] specialNumber = new Converter(inputString).convert();
         if (!new Checker(specialNumber).check()) { return; }
 
         System.out.println("Count off!");

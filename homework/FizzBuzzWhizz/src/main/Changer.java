@@ -6,7 +6,9 @@ public class Changer {
     }
 
     public String change(int testNumber) {
-        return (Integer.toString(testNumber).contains(Integer.toString(specialNumber[0]))) ? "Fizz" : changeMultiple(testNumber); 
+        String sequence = Integer.toString(testNumber);
+        String character = Integer.toString(specialNumber[0]);
+        return (sequence.contains(character)) ? "Fizz" : changeMultiple(testNumber); 
     }
     
     private String changeMultiple(int testNumber) {

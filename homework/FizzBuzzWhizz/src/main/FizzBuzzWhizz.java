@@ -1,17 +1,16 @@
 public class FizzBuzzWhizz {
+    private String keyboardInput;
+    InputAndOutput inputAndOutput = new InputAndOutput();
 
-    public static void main(String[] args){
-        InputAndOutput inputAndOutput = new InputAndOutput();
-        System.out.println("Please input special numbers which should be one to five different digits:");
-        String inputString = inputAndOutput.getInput();
-        
-        int[] specialNumber = new Converter(inputString).convert();
+    public FizzBuzzWhizz() {
+        keyboardInput = inputAndOutput.getInput();
+    }
+
+    public void process(int testNumber) {
+        int[] specialNumber = new Converter(keyboardInput).convert();
         if (!new Checker(specialNumber).check()) { return; }
 
-        System.out.println("Count off!");
-        for (int testNumber=1;testNumber<101;testNumber++) { 
-            String result = new Changer(specialNumber).change(testNumber);
-            inputAndOutput.printOutput(result);
-        }
+        String result = new Changer(specialNumber).change(testNumber);
+        inputAndOutput.printOutput(result);
     }
 }

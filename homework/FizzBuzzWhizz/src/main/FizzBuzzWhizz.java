@@ -2,7 +2,7 @@ public class FizzBuzzWhizz {
 
     public static void main(String[] args){
         InputAndOutput inputAndOutput = new InputAndOutput();
-        System.out.println("Please input special numbers which should be three different digits:");
+        System.out.println("Please input special numbers which should be one to five different digits:");
         String inputString = inputAndOutput.getInput();
         
         int[] specialNumber = new Converter(inputString).convert();

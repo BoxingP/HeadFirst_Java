@@ -5,18 +5,13 @@ import static org.hamcrest.core.Is.is;
 public class CheckerTest {
     
     @Test
-    public void specialNumberShouldBeThreeDifferentDigit() {
+    public void specialNumberShouldBeDifferentDigit() {
         assertThat(new Checker(new int[]{2,3,4}).check(), is(true));
     } 
     
     @Test
-    public void specialNumberIsNoneShouldReturnFalse() {
+    public void specialNumberIsEmptyShouldReturnFalse() {
         assertThat(new Checker(new int[]{}).check(), is(false));
-    }
-
-    @Test
-    public void specialNumberNotThreeShouldReturnFalse() {
-        assertThat(new Checker(new int[]{2,3}).check(), is(false));
     }
 
     @Test
@@ -26,7 +21,7 @@ public class CheckerTest {
     
     @Test
     public void specialNumberNotDifferentShouldReturnFalse() {
-        assertThat(new Checker(new int[]{3,3,7}).check(), is(false));
+        assertThat(new Checker(new int[]{2,3,4,4}).check(), is(false));
     }
 
 }

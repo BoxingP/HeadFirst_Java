@@ -6,11 +6,11 @@ public class Checker {
     }
     
     public boolean check() {
-        return (isThree() && isDigits() && isDifferent());
+        return (notEmpty() && isDigits() && isDifferent());
     }
     
-    private boolean isThree() {
-        return (specialNumber.length==3);
+    private boolean notEmpty() {
+        return (specialNumber.length>0 && specialNumber.length<6);
     }
 
     private boolean isDigits() {
@@ -25,7 +25,12 @@ public class Checker {
     }
 
     private boolean isDifferent() {
-        return (specialNumber[0]!=specialNumber[1] && specialNumber[0]!=specialNumber[2] && specialNumber[1]!=specialNumber[2]);
+        for (int i=0;i<specialNumber.length;i++) {
+            for (int j=i+1;j<specialNumber.length;j++) {
+                if (specialNumber[i]==specialNumber[j]) { return false; }
+            }
+        }
+        return true;
     }
 
 }

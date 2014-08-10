@@ -1,5 +1,6 @@
 public class Changer {
     private final int[] specialNumber;
+    private String[] multipleTag = {"Fizz","Buzz","Whizz","Murmur","Babble"};
 
     public Changer(int[] specialNumber) {
         this.specialNumber = specialNumber;
@@ -13,8 +14,7 @@ public class Changer {
     
     private String changeMultiple(int testNumber) {
         String result = "";
-        String[] multipleTag = {"Fizz","Buzz","Whizz"};
-        
+
         for (int i=0;i<specialNumber.length;i++) {
             if (testNumber%specialNumber[i]==0) { result += multipleTag[i]; }
         }

@@ -4,6 +4,7 @@ public class TestEquals{
         int number2=678;
         int number3=number1;
 
+        System.out.println("number1 is int, number2 is int, number3=number1.");
         System.out.println("number1="+number1+","+"number2="+number2+","+"number3="+number3);
         System.out.println("number1==number2?"+(number1==number2));
         System.out.println("number1==number3?"+(number1==number3));
@@ -16,10 +17,14 @@ public class TestEquals{
         A a1=new A();
         A a2=new A();
         A a3=a1;
+        
+        System.out.println("a1 is new, a2 is new, a3=a1.");
         System.out.println("a1==a2?"+(a1==a2));
         System.out.println("a1.equals(a2)?"+(a1.equals(a2)));       
         System.out.println("a1==a3?"+(a1==a3));
         System.out.println("a1.equals(a3)?"+(a1.equals(a3)));
+
+        System.out.println("getS1 is \"\", getS2=new String.");
         System.out.println("a1.getS1()==a2.getS1()?"+(a1.getS1()==a2.getS1()));
         System.out.println("a1.getS1().equals(a2.getS1())?"+(a1.getS1().equals(a2.getS1())));
         System.out.println("a1.getS2()==a2.getS2()?"+(a1.getS2()==a2.getS2()));
@@ -30,6 +35,8 @@ public class TestEquals{
         String s2="abc";
         String s3=new String("abc");
         String s4=new String("abc");
+
+        System.out.println("s1 is \"\", s2 is \"\", s3=new String, s4=new String.");
         System.out.println("s1==s2?"+(s1==s2));
         System.out.println("s1.equals(s2)?"+(s1.equals(s2)));
         System.out.println("s1==s3?"+(s1==s3));

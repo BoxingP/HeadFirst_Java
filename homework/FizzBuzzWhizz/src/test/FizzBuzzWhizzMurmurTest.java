@@ -6,37 +6,21 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class FizzBuzzWhizzMurmurTest {
-    private ByteArrayInputStream input;
     private ByteArrayOutputStream output;
-    private String separator = System.getProperty("line.separator");
 
     @Before
     public void init() {
-        input = new ByteArrayInputStream("2 3 5 7".getBytes());
-        System.setIn(input);
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
     }
 
     @Test
-    public void testNumberContainsTheFirstShouldReturnFizz() {
-        FizzBuzzWhizzMurmur fizzBuzzWhizzMurmur = new FizzBuzzWhizzMurmur();
-        fizzBuzzWhizzMurmur.process(24);
-        assertThat(output.toString(), is("Fizz"+separator));
+    public void testNumberShouldReturnCorrectString() {
+        FizzBuzzWhizzMurmur.main(new String[] {"2 3 4 5"});
+        String[] outputList = output.toString().split("\\n");
+        int testNumber = 45;
+        assertThat(outputList[testNumber-1], is("BuzzMurmur"));
     }
 
-    @Test
-    public void testNumberIsMultipleShouldReturnCorrespondingTag() {
-        FizzBuzzWhizzMurmur fizzBuzzWhizzMurmur = new FizzBuzzWhizzMurmur();
-        fizzBuzzWhizzMurmur.process(30);
-        assertThat(output.toString(), is("FizzBuzzWhizz"+separator));
-    }
-    
-    @Test
-    public void testNumberNotRelateToAnyShouldReturnItself() {
-        FizzBuzzWhizzMurmur fizzBuzzWhizzMurmur = new FizzBuzzWhizzMurmur();
-        fizzBuzzWhizzMurmur.process(61);
-        assertThat(output.toString(), is("61"+separator));
-    }
 }
 

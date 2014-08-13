@@ -1,16 +1,19 @@
 public class FizzBuzzWhizzMurmur {
-    private String keyboardInput;
-    InputAndOutput inputAndOutput = new InputAndOutput();
+    public static void main(String[] args) {
+        InputAndOutput inputAndOutput = new InputAndOutput();
+        
+        if (args.length==0) {
+            System.out.println("Please input four different digits:");
+            String keyboardInput = inputAndOutput.getInput();
+            args=new String[] {keyboardInput};
+        }
 
-    public FizzBuzzWhizzMurmur() {
-        keyboardInput = inputAndOutput.getInput();
-    }
-
-    public void process(int testNumber) {
-        int[] specialNumber = new Converter(keyboardInput).convert();
+        int[] specialNumber = new Converter(args[0]).convert();
         if (!new Checker(specialNumber).check()) { return; }
-
-        String result = new Changer(specialNumber).change(testNumber);
-        inputAndOutput.printOutput(result);
+        
+        for (int testNumber=1;testNumber<101;testNumber++) {
+            String result = new Changer(specialNumber).change(testNumber);
+            inputAndOutput.printOutput(result);
+        }
     }
 }

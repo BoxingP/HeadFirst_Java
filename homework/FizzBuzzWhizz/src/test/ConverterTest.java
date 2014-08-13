@@ -6,13 +6,13 @@ import static org.hamcrest.core.Is.is;
 public class ConverterTest {
     
     @Test
-    public void inputStringContainsNumbersShouldBeSplittedCorrectly() {
-        assertThat (new Converter("2 3 4").convert(), is(new int[]{2,3,4}));
+    public void inputElementsIsNumbersShouldBeConvertedCorrectly() {
+        assertThat (new Converter(new String[]{"2", "3", "4"}).convert(), is(new int[]{2,3,4}));
     }
     
     @Test
-    public void inputStringNotContainsNumberShouldReturnNull() {
-        assertThat (new Converter("abc").convert(), is(new int[]{}));
+    public void inputStringContainsOthersShouldReturnZero() {
+        assertThat (new Converter(new String[]{"2","a","3"}).convert(), is(new int[]{2,0,0}));
     }
 
 }

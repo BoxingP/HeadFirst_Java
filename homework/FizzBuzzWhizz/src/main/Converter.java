@@ -1,8 +1,8 @@
 public class Converter {
     private String[] inputElements;
 
-    public Converter(String inputString) {
-        inputElements = inputString.split("\\D");
+    public Converter(String[] inputElements) {
+        this.inputElements = inputElements;//String.split("\\D");
     }
 
     public int[] convert() {

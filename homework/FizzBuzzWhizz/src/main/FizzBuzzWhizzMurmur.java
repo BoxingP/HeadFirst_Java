@@ -8,11 +8,12 @@ public class FizzBuzzWhizzMurmur {
             args=new String[] {keyboardInput};
         }
 
-        int[] specialNumber = new Converter(args[0]).convert();
+        int[] specialNumber = new Converter(args).convert();
         if (!new Checker(specialNumber).check()) { return; }
-        
+       
+        Changer changer = new Changer(specialNumber); 
         for (int testNumber=1;testNumber<101;testNumber++) {
-            String result = new Changer(specialNumber).change(testNumber);
+            String result = changer.change(testNumber);
             inputAndOutput.printOutput(result);
         }
     }

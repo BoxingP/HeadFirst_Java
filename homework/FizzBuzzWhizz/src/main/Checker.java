@@ -6,11 +6,11 @@ public class Checker {
     }
     
     public boolean check() {
-        return (notEmpty() && isDigits() && isDifferent());
+        return (isFour() && isDigits() && isDifferent());
     }
     
-    private boolean notEmpty() {
-        return (specialNumber.length>0 && specialNumber.length<6);
+    private boolean isFour() {
+        return (specialNumber.length==4);
     }
 
     private boolean isDigits() {

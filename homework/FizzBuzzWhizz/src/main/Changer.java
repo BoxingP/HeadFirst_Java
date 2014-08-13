@@ -1,6 +1,6 @@
 public class Changer {
     private final int[] specialNumber;
-    private String[] multipleTag = {"Fizz","Buzz","Whizz","Murmur","Babble"};
+    private String[] multipleTag = {"Fizz","Buzz","Whizz","Murmur"};//"Babble","Purl"
 
     public Changer(int[] specialNumber) {
         this.specialNumber = specialNumber;

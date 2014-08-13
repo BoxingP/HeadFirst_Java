@@ -5,8 +5,8 @@ import static org.hamcrest.core.Is.is;
 public class CheckerTest {
     
     @Test
-    public void specialNumberShouldBeDifferentDigit() {
-        assertThat(new Checker(new int[]{2,3,4}).check(), is(true));
+    public void specialNumberShouldBeFourDifferentDigit() {
+        assertThat(new Checker(new int[]{2,3,5,7}).check(), is(true));
     } 
     
     @Test
@@ -16,12 +16,12 @@ public class CheckerTest {
 
     @Test
     public void specialNumberNotDigitShouldReturnFalse() {
-        assertThat(new Checker(new int[]{12,123,1234}).check(), is(false));
+        assertThat(new Checker(new int[]{1,12,123,1234}).check(), is(false));
     }
     
     @Test
     public void specialNumberNotDifferentShouldReturnFalse() {
-        assertThat(new Checker(new int[]{2,3,4,4}).check(), is(false));
+        assertThat(new Checker(new int[]{2,3,5,5}).check(), is(false));
     }
 
 }

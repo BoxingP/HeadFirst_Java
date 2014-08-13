@@ -1,8 +1,8 @@
-public class FizzBuzzWhizz {
+public class FizzBuzzWhizzMurmur {
     private String keyboardInput;
     InputAndOutput inputAndOutput = new InputAndOutput();
 
-    public FizzBuzzWhizz() {
+    public FizzBuzzWhizzMurmur() {
         keyboardInput = inputAndOutput.getInput();
     }
 

@@ -1,3 +1,5 @@
+package com.boxing.fizz;
+
 public class Converter {
     private String[] inputElements;
 

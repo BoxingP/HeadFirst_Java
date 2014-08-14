@@ -1,3 +1,5 @@
+package com.boxing.fizz;
+
 public class Changer {
     private final int[] specialNumber;
     private String[] multipleTag = {"Fizz","Buzz","Whizz","Murmur"};//"Babble","Purl"
@@ -10,7 +12,7 @@ public class Changer {
         String sequence = Integer.toString(testNumber);
         String character = Integer.toString(specialNumber[0]);
         return (sequence.contains(character)) ? "Fizz" : changeMultiple(testNumber); 
-    }
+    }   
     
     private String changeMultiple(int testNumber) {
         String result = "";

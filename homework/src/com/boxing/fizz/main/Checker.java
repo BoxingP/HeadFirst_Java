@@ -1,3 +1,5 @@
+package com.boxing.fizz;
+
 public class Checker {
     private int[] specialNumber;
 

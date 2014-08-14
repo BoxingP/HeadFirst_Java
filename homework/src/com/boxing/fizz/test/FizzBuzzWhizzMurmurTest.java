@@ -1,3 +1,5 @@
+package com.boxing.fizz;
+
 import java.io.*;
 import org.junit.Before;
 import org.junit.Test;

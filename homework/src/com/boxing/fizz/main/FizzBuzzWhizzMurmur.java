@@ -1,3 +1,5 @@
+package com.boxing.fizz;
+
 public class FizzBuzzWhizzMurmur {
     public static void main(String[] args) {
         InputAndOutput inputAndOutput = new InputAndOutput();

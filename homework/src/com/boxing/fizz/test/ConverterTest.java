@@ -1,3 +1,5 @@
+package com.boxing.fizz;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;

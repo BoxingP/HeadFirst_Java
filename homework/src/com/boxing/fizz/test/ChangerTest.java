@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
@@ -15,8 +16,6 @@ import static org.hamcrest.core.Is.is;
 @RunWith(Parameterized.class)
 public class ChangerTest {
     private Changer changer;
-    private int testNumber;
-    private String multipleTag;
     
     @Before
     public void initObject() {
@@ -45,10 +44,11 @@ public class ChangerTest {
                 {11, "11"}});
     }
 
-    public ChangerTest(int testNumber, String multipleTag) {
-        this.testNumber = testNumber;
-        this.multipleTag = multipleTag; 
-    }
+    @Parameter(0)
+    public int testNumber;
+    
+    @Parameter(1)
+    public String multipleTag;
 
     @Test
     public void testNumberDifferentConditionsShouldReturnCorrectly() {

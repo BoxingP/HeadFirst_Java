@@ -22,7 +22,7 @@ public class ChangerTest {
         changer = new Changer(new int[] {2,3,5,7});
     }
 
-    @Parameters
+    @Parameters(name = "{index}")
     public static Collection createValue() {
         return Arrays.asList(new Object[][] {
                 {12, "Fizz"},

@@ -2,7 +2,7 @@ package com.boxing.fizz;
 
 public class Changer {
     private final int[] specialNumber;
-    private String[] multipleTag = {"Fizz","Buzz","Whizz","Murmur"};//"Babble","Purl"
+    private String[] multipleTag = {"Fizz","Buzz","Whizz","Murmur"};
 
     public Changer(int[] specialNumber) {
         this.specialNumber = specialNumber;
@@ -15,12 +15,12 @@ public class Changer {
     }   
     
     private String changeMultiple(int testNumber) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         for (int i=0;i<specialNumber.length;i++) {
-            if (testNumber%specialNumber[i]==0) { result += multipleTag[i]; }
+            if (testNumber%specialNumber[i]==0) { result.append(multipleTag[i]); }
         }
-        return result.equals("") ? Integer.toString(testNumber) : result;
+        return result.length()==0 ? Integer.toString(testNumber) : result.toString();
     }
 
 }

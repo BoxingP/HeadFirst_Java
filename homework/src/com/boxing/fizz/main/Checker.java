@@ -2,17 +2,19 @@ package com.boxing.fizz;
 
 public class Checker {
     private int[] specialNumber;
+    private int amount;
 
-    public Checker(int[] specialNumber) {
+    public Checker(int[] specialNumber, int amount) {
         this.specialNumber = specialNumber;
+        this.amount = amount;
     }
     
     public boolean check() {
-        return (isFour() && isDigits() && isDifferent());
+        return (isLimited() && isDigits() && isDifferent());
     }
     
-    private boolean isFour() {
-        return (specialNumber.length==4);
+    private boolean isLimited() {
+        return (specialNumber.length==amount);
     }
 
     private boolean isDigits() {

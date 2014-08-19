@@ -9,16 +9,16 @@ public class Changer {
     }
 
     public String change(int testNumber) {
-        return isContain(testNumber) ? multipleTag[0] : isMultiple(testNumber); 
+        return containTheFirstNumber(testNumber) ? multipleTag[0] : replaceMultiple(testNumber); 
     }   
 
-    private boolean isContain(int testNumber) {
+    private boolean containTheFirstNumber(int testNumber) {
         String sequence = Integer.toString(testNumber);
         String character = Integer.toString(specialNumber[0]);
         return sequence.contains(character);
     }
 
-    private String isMultiple(int testNumber) {
+    private String replaceMultiple(int testNumber) {
         StringBuilder sequence = new StringBuilder();
 
         for (int i=0;i<specialNumber.length;i++) {

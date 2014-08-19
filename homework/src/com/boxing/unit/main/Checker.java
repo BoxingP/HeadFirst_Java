@@ -1,25 +1,22 @@
 package com.boxing.unit;
 
 public class Checker {
-    private int[] specialNumber;
+    private int[] checkedNumber;
     private int amount;
 
-    public Checker(int[] specialNumber, int amount) {
-        this.specialNumber = specialNumber;
+    public boolean check(int[] checkedNumber, int amount) {
+        this.checkedNumber = checkedNumber;
         this.amount = amount;
-    }
-    
-    public boolean check() {
         return (isLimited() && isDigits() && isDifferent());
     }
     
     private boolean isLimited() {
-        return (specialNumber.length==amount);
+        return (checkedNumber.length==amount);
     }
 
     private boolean isDigits() {
-        for (int i=0;i<specialNumber.length;i++) { 
-            if (!isDigit(specialNumber[i])) {return false;}
+        for (int i=0;i<checkedNumber.length;i++) { 
+            if (!isDigit(checkedNumber[i])) {return false;}
         }
         return true;
     }
@@ -29,9 +26,9 @@ public class Checker {
     }
 
     private boolean isDifferent() {
-        for (int i=0;i<specialNumber.length;i++) {
-            for (int j=i+1;j<specialNumber.length;j++) {
-                if (specialNumber[i]==specialNumber[j]) { return false; }
+        for (int i=0;i<checkedNumber.length;i++) {
+            for (int j=i+1;j<checkedNumber.length;j++) {
+                if (checkedNumber[i]==checkedNumber[j]) { return false; }
             }
         }
         return true;

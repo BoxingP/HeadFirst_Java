@@ -21,7 +21,7 @@ public class ConverterTest {
     public void inputStringContainsOthersShouldThrowsException() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Only number is allowed!");
-        new Converter(new String[]{"2","a","3"}).convert();
+        new Converter(new String[]{"2","3a","4"}).convert();
     }
 
 }

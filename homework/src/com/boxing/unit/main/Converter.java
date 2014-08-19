@@ -10,8 +10,11 @@ public class Converter {
     public int[] convert() throws IllegalArgumentException {
         int[] convertedElements = new int[inputElements.length];
         for (int i=0;i<convertedElements.length;i++) {
-            if (!inputElements[i].matches(".*\\d+.*")) { throw new IllegalArgumentException("Only number is allowed!"); }
-            convertedElements[i] = Integer.parseInt(inputElements[i]);
+            try {
+                convertedElements[i] = Integer.parseInt(inputElements[i]);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Only number is allowed!");
+            }
         }
         return convertedElements;
     }

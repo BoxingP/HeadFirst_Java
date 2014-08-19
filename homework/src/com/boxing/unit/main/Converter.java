@@ -1,22 +1,22 @@
 package com.boxing.unit;
 
 public class Converter {
-    private String[] inputElements;
+    private String[] stringElements;
 
-    public Converter(String[] inputElements) {
-        this.inputElements = inputElements;
+    public Converter(String[] stringElements) {
+        this.stringElements = stringElements;
     }
 
     public int[] convert() throws IllegalArgumentException {
-        int[] convertedElements = new int[inputElements.length];
-        for (int i=0;i<convertedElements.length;i++) {
+        int[] intElements = new int[stringElements.length];
+        for (int i=0;i<intElements.length;i++) {
             try {
-                convertedElements[i] = Integer.parseInt(inputElements[i]);
+                intElements[i] = Integer.parseInt(stringElements[i]);
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("Only number is allowed!");
             }
         }
-        return convertedElements;
+        return intElements;
     }
 }
 

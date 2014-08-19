@@ -1,4 +1,4 @@
-package com.boxing.fizz;
+package com.boxing.unit;
 
 import org.junit.Rule;
 import org.junit.Test;

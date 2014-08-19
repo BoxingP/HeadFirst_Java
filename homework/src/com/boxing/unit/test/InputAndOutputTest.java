@@ -1,4 +1,4 @@
-package com.boxing.fizz;
+package com.boxing.unit;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

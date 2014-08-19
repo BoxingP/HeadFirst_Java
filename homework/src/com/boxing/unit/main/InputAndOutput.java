@@ -1,4 +1,4 @@
-package com.boxing.fizz;
+package com.boxing.unit;
 
 import java.util.Scanner;
 import java.util.*;

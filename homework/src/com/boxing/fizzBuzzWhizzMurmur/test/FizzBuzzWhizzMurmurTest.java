@@ -1,4 +1,4 @@
-package com.boxing.fizz;
+package com.boxing.fizzBuzzWhizzMurmur;
 
 import java.io.*;
 import org.junit.Before;

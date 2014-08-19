@@ -1,4 +1,4 @@
-package com.boxing.fizz;
+package com.boxing.unit;
 
 public class Converter {
     private String[] inputElements;

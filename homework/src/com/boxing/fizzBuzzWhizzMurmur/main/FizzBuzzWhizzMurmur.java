@@ -1,17 +1,19 @@
-package com.boxing.fizz;
+package com.boxing.fizzBuzzWhizzMurmur;
 
-public class FizzBuzzWhizz {
+import com.boxing.unit.*;
+
+public class FizzBuzzWhizzMurmur {
     public static void main(String[] args) {
         InputAndOutput inputAndOutput = new InputAndOutput();
         
         if (args.length==0) {
-            System.out.println("Please input three different digits:");
+            System.out.println("Please input four different digits:");
             String keyboardInput = inputAndOutput.getInput();
             args = keyboardInput.split("\\D");
         }
 
         int[] specialNumber = new Converter(args).convert();
-        if (!new Checker(specialNumber, 3).check()) { return; }
+        if (!new Checker(specialNumber, 4).check()) { return; }
        
         Changer changer = new Changer(specialNumber); 
         for (int testNumber=1;testNumber<101;testNumber++) {

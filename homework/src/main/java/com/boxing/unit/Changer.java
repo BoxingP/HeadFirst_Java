@@ -4,7 +4,7 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public class Changer {
     private final int[] specialNumber;
-    public enum MultipleTag {
+    public enum Tag {
         FIZZ, BUZZ, WHIZZ, MURMUR
     }
 
@@ -13,7 +13,7 @@ public class Changer {
     }
 
     public String change(int testNumber) {
-        return containTheFirstNumber(testNumber) ? WordUtils.capitalizeFully(MultipleTag.values()[0].name()) : replaceMultiple(testNumber); 
+        return containTheFirstNumber(testNumber) ? tag(0) : replaceMultiple(testNumber);
     }   
 
     private boolean containTheFirstNumber(int testNumber) {
@@ -26,10 +26,14 @@ public class Changer {
         StringBuilder sequence = new StringBuilder();
 
         for (int i=0;i<specialNumber.length;i++) {
-            if (testNumber%specialNumber[i]==0) { sequence.append(WordUtils.capitalizeFully(MultipleTag.values()[i].name())); }
+            if (testNumber%specialNumber[i]==0) { sequence.append(tag(i)); }
         }
         if (sequence.length()==0) { sequence.append(testNumber); }
         return sequence.toString();
+    }
+
+    private String tag(int index) {
+        return WordUtils.capitalizeFully(Tag.values()[index].name());
     }
 
 }

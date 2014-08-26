@@ -12,12 +12,12 @@ public class FizzBuzzWhizzMurmur {
             args = keyboardInput.split("\\D");
         }
 
-        int[] specialNumber = new Converter(args).convert();
-        if (!new Validator(4).isValid(specialNumber)) { return; }
+        int[] definedNumbers = new Converter(args).convert();
+        if (!new Validator(4).isValid(definedNumbers)) { return; }
        
-        Changer changer = new Changer(specialNumber); 
-        for (int testNumber=1;testNumber<101;testNumber++) {
-            String result = changer.change(testNumber);
+        Changer changer = new Changer(definedNumbers);
+        for (int number=1;number<101;number++) {
+            String result = changer.change(number);
             inputAndOutput.printOutput(result);
         }
     }

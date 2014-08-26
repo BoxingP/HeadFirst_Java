@@ -8,7 +8,7 @@ public class Checker {
         this.amount = amount;
     }
 
-    public boolean check(int[] checkedNumber) {
+    public boolean isValid(int[] checkedNumber) {
         this.checkedNumber = checkedNumber;
         return (isLimited() && isDigits() && isDifferent());
     }
@@ -18,8 +18,8 @@ public class Checker {
     }
 
     private boolean isDigits() {
-        for (int i=0;i<checkedNumber.length;i++) { 
-            if (!isDigit(checkedNumber[i])) {return false;}
+        for (int aCheckedNumber : checkedNumber) {
+            if (!isDigit(aCheckedNumber)) return false;
         }
         return true;
     }
@@ -31,7 +31,7 @@ public class Checker {
     private boolean isDifferent() {
         for (int i=0;i<checkedNumber.length;i++) {
             for (int j=i+1;j<checkedNumber.length;j++) {
-                if (checkedNumber[i]==checkedNumber[j]) { return false; }
+                if (checkedNumber[i]==checkedNumber[j]) return false;
             }
         }
         return true;

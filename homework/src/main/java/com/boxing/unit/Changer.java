@@ -13,7 +13,7 @@ public class Changer {
     }
 
     public String change(int testNumber) {
-        return containTheFirstNumber(testNumber) ? tag(0) : replaceMultiple(testNumber);
+        return containTheFirstNumber(testNumber) ? tagNumber(0) : replaceMultiple(testNumber);
     }   
 
     private boolean containTheFirstNumber(int testNumber) {
@@ -26,13 +26,13 @@ public class Changer {
         StringBuilder sequence = new StringBuilder();
 
         for (int i=0;i<specialNumber.length;i++) {
-            if (testNumber%specialNumber[i]==0) { sequence.append(tag(i)); }
+            if (testNumber%specialNumber[i]==0) { sequence.append(tagNumber(i)); }
         }
         if (sequence.length()==0) { sequence.append(testNumber); }
         return sequence.toString();
     }
 
-    private String tag(int index) {
+    private String tagNumber(int index) {
         return WordUtils.capitalizeFully(Tag.values()[index].name());
     }
 

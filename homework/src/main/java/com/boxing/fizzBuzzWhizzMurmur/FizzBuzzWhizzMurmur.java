@@ -13,7 +13,7 @@ public class FizzBuzzWhizzMurmur {
         }
 
         int[] specialNumber = new Converter(args).convert();
-        if (!new Checker().check(specialNumber, 4)) { return; }
+        if (!new Checker(4).check(specialNumber)) { return; }
        
         Changer changer = new Changer(specialNumber); 
         for (int testNumber=1;testNumber<101;testNumber++) {

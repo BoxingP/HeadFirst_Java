@@ -4,9 +4,12 @@ public class Checker {
     private int[] checkedNumber;
     private int amount;
 
-    public boolean check(int[] checkedNumber, int amount) {
-        this.checkedNumber = checkedNumber;
+    public Checker(int amount) {
         this.amount = amount;
+    }
+
+    public boolean check(int[] checkedNumber) {
+        this.checkedNumber = checkedNumber;
         return (isLimited() && isDigits() && isDifferent());
     }
     

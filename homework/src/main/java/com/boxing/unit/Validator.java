@@ -1,7 +1,6 @@
 package com.boxing.unit;
 
 public class Validator {
-    private int[] checkedNumber;
     private int amount;
 
     public Validator(int amount) {
@@ -9,15 +8,14 @@ public class Validator {
     }
 
     public boolean isValid(int[] checkedNumber) {
-        this.checkedNumber = checkedNumber;
-        return (isLimited() && isDigits() && isDifferent());
+        return (isLimited(checkedNumber) && isDigits(checkedNumber) && isDifferent(checkedNumber));
     }
     
-    private boolean isLimited() {
+    private boolean isLimited(int[] checkedNumber) {
         return (checkedNumber.length==amount);
     }
 
-    private boolean isDigits() {
+    private boolean isDigits(int[] checkedNumber) {
         for (int aCheckedNumber : checkedNumber) {
             if (!isDigit(aCheckedNumber)) return false;
         }
@@ -28,7 +26,7 @@ public class Validator {
         return ((number>0) && (number<10));
     }
 
-    private boolean isDifferent() {
+    private boolean isDifferent(int[] checkedNumber) {
         for (int i=0;i<checkedNumber.length;i++) {
             for (int j=i+1;j<checkedNumber.length;j++) {
                 if (checkedNumber[i]==checkedNumber[j]) return false;

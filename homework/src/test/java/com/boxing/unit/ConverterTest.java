@@ -19,7 +19,7 @@ public class ConverterTest {
 
     @Test
     public void inputStringContainsOthersShouldThrowsException() {
-        thrown.expect(IllegalArgumentException.class);
+        thrown.expect(NumberFormatException.class);
         thrown.expectMessage("Only number is allowed!");
         new Converter(new String[]{"2","3a","4"}).convert();
     }

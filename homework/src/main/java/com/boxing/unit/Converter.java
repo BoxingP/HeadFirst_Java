@@ -7,13 +7,13 @@ public class Converter {
         this.inputElements = inputElements;
     }
 
-    public int[] convert() throws IllegalArgumentException {
+    public int[] convert() {
         int[] outputElements = new int[inputElements.length];
         for (int i=0;i<outputElements.length;i++) {
             try {
                 outputElements[i] = Integer.parseInt(inputElements[i]);
             } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Only number is allowed!");
+                throw new NumberFormatException("Only number is allowed!");
             }
         }
         return outputElements;

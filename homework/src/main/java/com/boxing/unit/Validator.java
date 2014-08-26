@@ -7,17 +7,17 @@ public class Validator {
         this.amount = amount;
     }
 
-    public boolean isValid(int[] checkedNumber) {
-        return (isLimited(checkedNumber) && isDigits(checkedNumber) && isDifferent(checkedNumber));
+    public boolean isValid(int[] numbers) {
+        return (isLimited(numbers) && isDigits(numbers) && isDifferent(numbers));
     }
     
-    private boolean isLimited(int[] checkedNumber) {
-        return (checkedNumber.length==amount);
+    private boolean isLimited(int[] numbers) {
+        return (numbers.length==amount);
     }
 
-    private boolean isDigits(int[] checkedNumber) {
-        for (int aCheckedNumber : checkedNumber) {
-            if (!isDigit(aCheckedNumber)) return false;
+    private boolean isDigits(int[] numbers) {
+        for (int number : numbers) {
+            if (!isDigit(number)) return false;
         }
         return true;
     }
@@ -26,10 +26,10 @@ public class Validator {
         return ((number>0) && (number<10));
     }
 
-    private boolean isDifferent(int[] checkedNumber) {
-        for (int i=0;i<checkedNumber.length;i++) {
-            for (int j=i+1;j<checkedNumber.length;j++) {
-                if (checkedNumber[i]==checkedNumber[j]) return false;
+    private boolean isDifferent(int[] numbers) {
+        for (int i=0;i<numbers.length;i++) {
+            for (int j=i+1;j<numbers.length;j++) {
+                if (numbers[i]==numbers[j]) return false;
             }
         }
         return true;

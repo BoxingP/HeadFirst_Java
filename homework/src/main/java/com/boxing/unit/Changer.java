@@ -4,7 +4,7 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public class Changer {
     private final int[] specialNumber;
-    public enum Tag {
+    private enum Tag {
         FIZZ, BUZZ, WHIZZ, MURMUR
     }
 

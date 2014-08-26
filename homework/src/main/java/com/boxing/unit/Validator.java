@@ -1,10 +1,10 @@
 package com.boxing.unit;
 
-public class Checker {
+public class Validator {
     private int[] checkedNumber;
     private int amount;
 
-    public Checker(int amount) {
+    public Validator(int amount) {
         this.amount = amount;
     }
 

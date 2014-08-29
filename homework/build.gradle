@@ -1,5 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'application'
 
 repositories {
     mavenCentral()
@@ -18,14 +17,14 @@ task hello << {
     println 'Hello world'
 }
 
-task runTests(dependsOn: 'testClasses', type: Test) << {
-    description = 'run all tests'
-    include '**/*Test'
+task runFizzBuzzWhizz(type: JavaExec) {
+    main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
+    args =['2', '3', '4']
+    classpath sourceSets.main.runtimeClasspath
 }
 
-tasks.withType(Test) {
-    testLogging {
-        events 'started', 'passed'
-    }
+task runFizzBuzzWhizzMurmur(type: JavaExec) {
+    main = "com.boxing.fizzBuzzWhizzMurmur.FizzBuzzWhizzMurmur"
+    args =['2', '3', '4','5']
+    classpath sourceSets.main.runtimeClasspath
 }
-

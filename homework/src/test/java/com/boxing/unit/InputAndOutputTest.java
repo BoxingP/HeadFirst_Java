@@ -20,14 +20,6 @@ public class InputAndOutputTest {
     }
 
     @Test
-    public void inputShouldGetString() {
-        ByteArrayInputStream inputString = new ByteArrayInputStream("2 3 5".getBytes());
-        System.setIn(inputString);
-        String input = inputAndOutput.getInput();
-        assertThat(input, is("2 3 5"));
-    }
-
-    @Test
     public void ouputShouldReturnString() {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));

@@ -6,12 +6,6 @@ public class FizzBuzzWhizz {
     public static void main(String[] args) {
         InputAndOutput inputAndOutput = new InputAndOutput();
         
-        if (args.length==0) {
-            System.out.println("Please input three different digits:");
-            String keyboardInput = inputAndOutput.getInput();
-            args = keyboardInput.split("\\D");
-        }
-
         int[] definedNumbers = new Converter(args).convert();
         if (!new Validator(3).isValid(definedNumbers)) { return; }
        

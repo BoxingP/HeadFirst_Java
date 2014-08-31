@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'eclipse'
 
 repositories {
     mavenCentral()
@@ -13,9 +14,9 @@ dependencies {
 }
 
 task hello << {
-    //Note the '<< {}' is an equivalent to doLast {}
     println 'Hello world'
 }
+
 
 task runFizzBuzzWhizz(type: JavaExec) {
     main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"

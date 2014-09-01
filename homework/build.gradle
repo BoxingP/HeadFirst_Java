@@ -3,29 +3,25 @@ apply plugin: 'java'
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://mvnrepository.com/"
-    }
 }
 
 dependencies {
     compile 'org.apache.commons:commons-lang3:3.3.2'
-    testCompile 'org.hamcrest:hamcrest-all:1.3', 'junit:junit:4.11'
+    testCompile 'junit:junit:4.11'
 }
 
 task hello << {
     println 'Hello world'
 }
 
-
 task runFizzBuzzWhizz(type: JavaExec) {
-    main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
-    args =['2', '3', '4']
+    main = 'com.boxing.fizzBuzzWhizz.FizzBuzzWhizz'
+    args = ['2', '3', '4']
     classpath sourceSets.main.runtimeClasspath
 }
 
 task runFizzBuzzWhizzMurmur(type: JavaExec) {
     main = "com.boxing.fizzBuzzWhizzMurmur.FizzBuzzWhizzMurmur"
-    args =['2', '3', '4','5']
+    args = ['2', '3', '4', '5']
     classpath sourceSets.main.runtimeClasspath
 }

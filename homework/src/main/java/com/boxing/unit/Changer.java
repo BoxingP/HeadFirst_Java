@@ -13,12 +13,14 @@ public class Changer {
     }
 
     public String change(int number) {
-        return containTheFirstDefinedNumber(number) ? tagNumber(0) : replaceMultiple(number);
-    }   
+        if (containDefinedNumber(number, 0)) {return tagNumber(0);}
+        else if (containDefinedNumber(number, 1)) {return "Whizz";}
+        return replaceMultiple(number);
+    }
 
-    private boolean containTheFirstDefinedNumber(int number) {
+    private boolean containDefinedNumber(int number, int index) {
         String sequence = Integer.toString(number);
-        String character = Integer.toString(definedNumbers[0]);
+        String character = Integer.toString(definedNumbers[index]);
         return sequence.contains(character);
     }
 

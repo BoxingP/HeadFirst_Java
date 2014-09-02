@@ -26,6 +26,7 @@ public class ChangerTest {
     public static Collection createValue() {
         return Arrays.asList(new Object[][] {
                 {12, "Fizz"},
+                {13, "Whizz"},
                 {4, "Fizz"},
                 {9, "Buzz"},
                 {5, "Whizz"},
@@ -34,13 +35,13 @@ public class ChangerTest {
                 {10, "FizzWhizz"},
                 {14, "FizzMurmur"},
                 {15, "BuzzWhizz"},
-                {63, "BuzzMurmur"},
-                {35, "WhizzMurmur"},
+                {147, "BuzzMurmur"},
+                {175, "WhizzMurmur"},
                 {105, "BuzzWhizzMurmur"},
                 {70, "FizzWhizzMurmur"},
                 {84, "FizzBuzzMurmur"},
-                {30, "FizzBuzzWhizz"},
-                {630, "FizzBuzzWhizzMurmur"},
+                {60, "FizzBuzzWhizz"},
+                {1050, "FizzBuzzWhizzMurmur"},
                 {11, "11"}});
     }
 

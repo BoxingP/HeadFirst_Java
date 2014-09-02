@@ -15,6 +15,7 @@ public class Changer {
     public String change(int number) {
         if (containDefinedNumber(number, 0)) {return tagNumber(0);}
         else if (containDefinedNumber(number, 1)) {return "Whizz";}
+        else if (containDefinedNumber(number, 2)) {return "Buzz";}
         return replaceMultiple(number);
     }
 

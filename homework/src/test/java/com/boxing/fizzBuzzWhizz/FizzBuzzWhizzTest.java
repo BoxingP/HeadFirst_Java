@@ -21,7 +21,7 @@ public class FizzBuzzWhizzTest {
         FizzBuzzWhizz.main(new String[] {"2", "3", "5"});
         String[] outputList = output.toString().split("\\n");
         int testNumber = 15;
-        assertThat(outputList[testNumber-1], is("BuzzWhizz"));
+        assertThat(outputList[testNumber-1], is("Buzz"));
     }
 
 }

@@ -20,8 +20,8 @@ public class FizzBuzzWhizzMurmurTest {
     public void testNumberShouldReturnCorrectString() {
         FizzBuzzWhizzMurmur.main(new String[] {"2", "3", "4", "5"});
         String[] outputList = output.toString().split("\\n");
-        int testNumber = 45;
-        assertThat(outputList[testNumber-1], is("BuzzMurmur"));
+        int testNumber = 55;
+        assertThat(outputList[testNumber-1], is("Murmur"));
     }
 
 }

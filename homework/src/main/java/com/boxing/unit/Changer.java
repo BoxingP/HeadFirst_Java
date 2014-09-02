@@ -4,7 +4,10 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public class Changer {
     private final int[] definedNumbers;
-    private enum Tag {
+    private enum ContainTag {
+        FIZZ, WHIZZ, BUZZ
+    }
+    private enum MultipleTag {
         FIZZ, BUZZ, WHIZZ, MURMUR
     }
 
@@ -13,10 +16,14 @@ public class Changer {
     }
 
     public String change(int number) {
-        if (containDefinedNumber(number, 0)) {return tagNumber(0);}
-        else if (containDefinedNumber(number, 1)) {return "Whizz";}
-        else if (containDefinedNumber(number, 2)) {return "Buzz";}
-        return replaceMultiple(number);
+        return !replaceContain(number).matches(".*\\d.*") ? replaceContain(number) : replaceMultiple(number);
+    }
+
+    private String replaceContain(int number) {
+        for (int index=0;index<3;index++) {
+            if (containDefinedNumber(number, index)) {return tagContain(index);}
+        }
+        return Integer.toString(number);
     }
 
     private boolean containDefinedNumber(int number, int index) {
@@ -29,14 +36,18 @@ public class Changer {
         StringBuilder sequence = new StringBuilder();
 
         for (int i=0;i< definedNumbers.length;i++) {
-            if (number% definedNumbers[i]==0) { sequence.append(tagNumber(i)); }
+            if (number% definedNumbers[i]==0) { sequence.append(tagMultiple(i)); }
         }
         if (sequence.length()==0) { sequence.append(number); }
         return sequence.toString();
     }
 
-    private String tagNumber(int index) {
-        return WordUtils.capitalizeFully(Tag.values()[index].name());
+    private String tagContain(int index) {
+        return WordUtils.capitalizeFully(ContainTag.values()[index].name());
     }
 
+    private String tagMultiple(int index) {
+        return WordUtils.capitalizeFully(MultipleTag.values()[index].name());
+    }
 }
+

@@ -19,30 +19,30 @@ public class ChangerTest {
     
     @Before
     public void initObject() {
-        changer = new Changer(new int[] {2,3,5,7});
+        changer = new Changer(new int[] {3,4,7,5});
     }
 
     @Parameters(name = "{index}")
     public static Collection createValue() {
         return Arrays.asList(new Object[][] {
-                {2, "Fizz"},
-                {3, "Whizz"},
-                {5, "Buzz"},
-                {4, "Fizz"},
-                {9, "Buzz"},
-                //{5, "Whizz"},
-                {49, "Murmur"},
-                {6, "FizzBuzz"},
-                {10, "FizzWhizz"},
-                {14, "FizzMurmur"},
-                //{15, "BuzzWhizz"},
-                {147, "BuzzMurmur"},
-                //{175, "WhizzMurmur"},
-                //{105, "BuzzWhizzMurmur"},
-                {70, "FizzWhizzMurmur"},
-                {84, "FizzBuzzMurmur"},
-                {60, "FizzBuzzWhizz"},
-                //{1050, "FizzBuzzWhizzMurmur"},
+                {3, "Fizz"},
+                {4, "Whizz"},
+                {7, "Buzz"},
+                {9, "Fizz"},
+                {16, "Buzz"},
+                {91, "Whizz"},
+                {25, "Murmur"},
+                {12, "FizzBuzz"},
+                {21, "FizzWhizz"},
+                {15, "FizzMurmur"},
+                {28, "BuzzWhizz"},
+                {20, "BuzzMurmur"},
+                {595, "WhizzMurmur"},
+                {280, "BuzzWhizzMurmur"},
+                {105, "FizzWhizzMurmur"},
+                {60, "FizzBuzzMurmur"},
+                {168, "FizzBuzzWhizz"},
+                {1680, "FizzBuzzWhizzMurmur"},
                 {11, "11"}});
     }
 

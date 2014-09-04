@@ -1,26 +1,27 @@
 package com.boxing.unit;
 
-public class Changer {
-    private final int[] definedNumbers;
+import java.util.Arrays;
+import java.util.List;
 
-    public Changer(int[] definedNumbers) {
+public class Changer {
+    private int[] definedNumbers;
+    List<Replace> replaceList;
+
+    public Changer(int[] definedNumbers, List<Replace> replaceList) {
         this.definedNumbers = definedNumbers;
+        this.replaceList = replaceList;
     }
 
     public String change(int number) {
-        ChangeRule changeRule;
-
-        changeRule = new ChangeRule(new ReplaceContain());
-        String result = changeRule.replace(number, definedNumbers);
-        if (isNotHandled(result)) {
-            changeRule = new ChangeRule(new ReplaceMultiple());
-            result = changeRule.replace(number, definedNumbers);
+        for (Replace replace : replaceList) {
+            String result = replace.replace(number, definedNumbers);
+            if (isHandled(result)) { return result; }
         }
-        return result;
+        return String.valueOf(number);
     }
 
-    private boolean isNotHandled(String result) {
-        return result.matches(".*\\d.*");
+    private boolean isHandled(String result) {
+        return !result.matches(".*\\d.*");
     }
 
 }

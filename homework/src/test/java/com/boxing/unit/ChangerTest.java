@@ -19,7 +19,7 @@ public class ChangerTest {
     
     @Before
     public void initObject() {
-        changer = new Changer(new int[] {3,4,7,5});
+        changer = new Changer(new int[] {3,4,7,5}, Arrays.asList(new ReplaceContain(), new ReplaceMultiple()));
     }
 
     @Parameters(name = "{index}")

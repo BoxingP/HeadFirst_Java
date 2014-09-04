@@ -8,12 +8,19 @@ public class Changer {
     }
 
     public String change(int number) {
-        String result =  Contain.replaceContain(number, definedNumbers);
-        return isHandled(result) ? result : Multiple.replaceMultiple(number, definedNumbers);
+        ChangeRule changeRule;
+
+        changeRule = new ChangeRule(new ReplaceContain());
+        String result = changeRule.replace(number, definedNumbers);
+        if (isNotHandled(result)) {
+            changeRule = new ChangeRule(new ReplaceMultiple());
+            result = changeRule.replace(number, definedNumbers);
+        }
+        return result;
     }
 
-    private boolean isHandled(String result) {
-        return !result.matches(".*\\d.*");
+    private boolean isNotHandled(String result) {
+        return result.matches(".*\\d.*");
     }
 
 }

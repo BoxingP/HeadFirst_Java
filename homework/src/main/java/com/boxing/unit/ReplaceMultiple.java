@@ -2,12 +2,12 @@ package com.boxing.unit;
 
 import org.apache.commons.lang3.text.WordUtils;
 
-public class Multiple {
+public class ReplaceMultiple implements Replace{
     private enum MultipleTag {
         FIZZ, BUZZ, WHIZZ, MURMUR
     }
 
-    public static String replaceMultiple(int number, int[] definedNumbers) {
+    public String replace(int number, int[] definedNumbers) {
         StringBuilder sequence = new StringBuilder();
 
         for (int index=0;index< definedNumbers.length;index++) {
@@ -17,7 +17,7 @@ public class Multiple {
         return sequence.toString();
     }
 
-    private static String tagMultiple(int index) {
+    private String tagMultiple(int index) {
         return WordUtils.capitalizeFully(MultipleTag.values()[index].name());
     }
 }

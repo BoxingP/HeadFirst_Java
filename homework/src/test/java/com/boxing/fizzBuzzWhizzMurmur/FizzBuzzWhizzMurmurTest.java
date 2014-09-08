@@ -1,6 +1,7 @@
 package com.boxing.fizzBuzzWhizzMurmur;
 
 import java.io.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class FizzBuzzWhizzMurmurTest {
     }
 
     @Test
-    public void testNumberShouldReturnCorrectString() {
+    public void testNumberWithCorrectDefinedNumbersShouldReturnCorrectString() {
         FizzBuzzWhizzMurmur.main(new String[] {"2", "3", "4", "5"});
         String[] outputList = output.toString().split("\\n");
         int testNumber = 55;

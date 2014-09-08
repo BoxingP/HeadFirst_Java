@@ -17,7 +17,7 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void testNumberShouldReturnCorrectString() {
+    public void testNumberWithCorrectDefinedNumbersShouldReturnCorrectString() {
         FizzBuzzWhizz.main(new String[] {"2", "3", "5"});
         String[] outputList = output.toString().split("\\n");
         int testNumber = 15;

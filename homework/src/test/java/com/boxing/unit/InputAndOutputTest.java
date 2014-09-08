@@ -20,7 +20,7 @@ public class InputAndOutputTest {
     }
 
     @Test
-    public void ouputShouldReturnString() {
+    public void outputShouldReturnString() {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         String separator = System.getProperty("line.separator");

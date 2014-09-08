@@ -31,7 +31,7 @@ public class ValidatorTest {
     
     @Test
     public void specialNumberNotDigitShouldReturnFalse() {
-        assertThat(validator.isValid(new int[]{1,12,123,1234}), is(false));
+        assertThat(validator.isValid(new int[]{-1,1,12,123}), is(false));
     }
     
     @Test

@@ -10,11 +10,12 @@ public class ReplaceRules {
     }
 
     public String rule(int number, int[] definedNumbers) {
+        String result = String.valueOf(number);
         for (Replace replace : replaceList) {
-            String result = replace.replace(number, definedNumbers);
+            result = replace.replace(number, definedNumbers);
             if (isHandled(result)) { return result; }
         }
-        return String.valueOf(number);
+        return result;
     }
 
     private boolean isHandled(String result) {

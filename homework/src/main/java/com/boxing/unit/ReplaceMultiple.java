@@ -14,8 +14,7 @@ public class ReplaceMultiple implements Replace{
             if (number% definedNumbers[index]==0) { sequence.append(tagMultiple(index)); }
         }
         if (sequence.length()==0) { sequence.append(number); }
-        if (definedNumbers.length==4 && sequence.length()==19) { sequence = new StringBuilder().append("Bingo"); }
-        return sequence.toString();
+        return new ReplaceFourMultiple().replace(sequence.toString(),definedNumbers);
     }
 
     private String tagMultiple(int index) {

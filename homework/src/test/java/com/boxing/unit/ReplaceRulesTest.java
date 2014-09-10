@@ -61,7 +61,7 @@ public class ReplaceRulesTest {
     @Test
     public void thereIsTwoRulesThatBothWillReturnNumberThenRuleShouldReturnNumber() {
         ReplaceRules rules = new ReplaceRules( Arrays.asList(ruleWhichReturnNumber,ruleWhichReturnNumber) );
-        assertThat(rules.rule(44, definedNumbers), is("44"));
+        assertThat(rules.rule(44, definedNumbers), is("22"));
     }
 }
 

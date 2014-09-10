@@ -18,9 +18,9 @@ public class FizzBuzzWhizz {
         if (!new Validator(amount).isValid(definedNumbers)) { return; }
 
         List<Replace> replaceList = Arrays.asList(new ReplaceContain(), new ReplaceMultiple());
-        Changer changer = new Changer(definedNumbers, new ReplaceRules(replaceList));
+        ReplaceRules replaceRuler = new ReplaceRules(replaceList);
         for (int number=1;number<101;number++) {
-            String result = changer.change(number);
+            String result = replaceRuler.rule(number,definedNumbers);
             inputAndOutput.printOutput(result);
         }
     }

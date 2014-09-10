@@ -1,5 +1,6 @@
 package com.boxing.unit;
 
+import com.boxing.rule.Replace;
 import org.junit.Before;
 import org.junit.Test;
 

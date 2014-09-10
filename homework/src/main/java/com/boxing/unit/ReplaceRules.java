@@ -1,5 +1,7 @@
 package com.boxing.unit;
 
+import com.boxing.rule.Replace;
+
 import java.util.List;
 
 public class ReplaceRules {

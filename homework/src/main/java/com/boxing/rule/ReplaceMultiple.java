@@ -1,8 +1,8 @@
-package com.boxing.unit;
+package com.boxing.rule;
 
 import org.apache.commons.lang3.text.WordUtils;
 
-public class ReplaceMultiple implements Replace{
+public class ReplaceMultiple implements Replace {
     private enum MultipleTag {
         FIZZ, BUZZ, WHIZZ, MURMUR, BINGO
     }

@@ -1,5 +1,6 @@
 package com.boxing.fizzBuzzWhizz;
 
+import com.boxing.rule.*;
 import com.boxing.unit.*;
 import org.apache.commons.configuration.PropertiesConfiguration;
 

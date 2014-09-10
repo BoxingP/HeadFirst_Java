@@ -1,20 +1,13 @@
 package com.boxing.rule;
 
-import org.apache.commons.lang3.text.WordUtils;
+public class ReplaceFourMultiple implements Replace{
 
-public class ReplaceFourMultiple{
-    private enum DefinedTag {
-        FIZZ, BUZZ, WHIZZ, MURMUR, BINGO
-    }
-    public String replace(String sequence, int[] definedNumbers) {
-        if (definedNumbers.length!=4) return sequence;
-        for (int i=0;i<definedNumbers.length;i++) {
-            if (!sequence.contains(getDefinedTag(i))) return sequence;
+    public String replace(int number, int[] definedNumbers) {
+        if (definedNumbers.length!=4) return String.valueOf(number);
+        for (int index=0;index<definedNumbers.length;index++) {
+            if (number%definedNumbers[index]!=0) return String.valueOf(number);
         }
-        return getDefinedTag(4);
+        return "Bingo";
     }
 
-    private String getDefinedTag(int index) {
-        return WordUtils.capitalizeFully(DefinedTag.values()[index].name());
-    }
 }

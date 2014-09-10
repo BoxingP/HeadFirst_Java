@@ -91,9 +91,9 @@ public class ReplaceMultipleTest {
     }
 
     @Test
-    public void inputIsMultipleOfFourDefinedNumbersShouldReturnBingo() {
+    public void inputIsMultipleOfFourDefinedNumbersShouldReturnFizzBuzzWhizzMurmur() {
         Replace replace = new ReplaceMultiple();
-        assertThat(replace.replace(1260, new int[] {3, 4, 7, 5}), is("Bingo"));
+        assertThat(replace.replace(1260, new int[] {3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
     }
 
     @Test

@@ -7,7 +7,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'org.apache.commons:commons-lang3:3.3.2', 'commons-configuration:commons-configuration:1.10'
     testCompile 'junit:junit:4.11'
 }
 
@@ -26,14 +26,30 @@ task hello << {
     println 'Hello world'
 }
 
-task runFizzBuzzWhizz(type: JavaExec) {
-    main = 'com.boxing.fizzBuzzWhizz.FizzBuzzWhizz'
-    args = ['2', '3', '4']
+task fizz(type: JavaExec) {
+    Properties properties = new Properties()
+    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/config.properties")
+    properties.load(propertiesFile.newDataInputStream())
+    properties.setProperty("amount.definedNumbers", "3")
+    properties.setProperty("value.args", "2,3,4")
+    properties.store(propertiesFile.newOutputStream(), null)
+    String input = project.hasProperty("args") ? project.getProperty("args") : properties.getProperty("value.args")
+
+    main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
+    args = input.split("\\D").toList()
     classpath sourceSets.main.runtimeClasspath
 }
 
-task runFizzBuzzWhizzMurmur(type: JavaExec) {
-    main = "com.boxing.fizzBuzzWhizzMurmur.FizzBuzzWhizzMurmur"
-    args = ['2', '3', '4', '5']
+task fizzMuMu(type: JavaExec) {
+    Properties properties = new Properties()
+    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/config.properties")
+    properties.load(propertiesFile.newDataInputStream())
+    properties.setProperty("amount.definedNumbers", "4")
+    properties.setProperty("value.args", "2,3,4,5")
+    properties.store(propertiesFile.newOutputStream(), null)
+    String input = project.hasProperty("args") ? project.getProperty("args") : properties.getProperty("value.args")
+
+    main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
+    args = input.split("\\D").toList()
     classpath sourceSets.main.runtimeClasspath
 }

@@ -1,6 +1,8 @@
 package com.boxing.fizzBuzzWhizz;
 
 import java.io.*;
+
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,8 +19,13 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void testNumberWithCorrectDefinedNumbersShouldReturnCorrectString() {
-        FizzBuzzWhizz.main(new String[] {"2", "3", "5"});
+    public void testNumberWithCorrectDefinedNumbersShouldReturnCorrectString() throws Exception{
+        PropertiesConfiguration config = new PropertiesConfiguration("config.properties");
+        config.setProperty("amount.definedNumbers", 3);
+        config.setProperty("value.args", "2,3,5");
+        config.save();
+        String[] args = config.getStringArray("value.args");
+        FizzBuzzWhizz.main(args);
         String[] outputList = output.toString().split("\\n");
         int testNumber = 15;
         assertThat(outputList[testNumber-1], is("Buzz"));

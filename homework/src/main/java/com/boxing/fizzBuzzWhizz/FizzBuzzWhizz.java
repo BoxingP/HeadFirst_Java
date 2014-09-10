@@ -10,6 +10,7 @@ public class FizzBuzzWhizz {
     public static void main(String[] args) throws Exception{
         PropertiesConfiguration config = new PropertiesConfiguration("config.properties");
         int amount = config.getInt("amount.definedNumbers");
+        args = System.getProperty("args")!=null ? System.getProperty("args").split("\\D"):config.getStringArray("value.args");
         InputAndOutput inputAndOutput = new InputAndOutput();
 
         int[] definedNumbers = new Converter().convert(args);

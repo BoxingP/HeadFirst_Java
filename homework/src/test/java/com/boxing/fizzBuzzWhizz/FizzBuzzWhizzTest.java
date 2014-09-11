@@ -20,7 +20,7 @@ public class FizzBuzzWhizzTest {
 
     @Test
     public void testNumberWithCorrectDefinedNumbersShouldReturnCorrectString() throws Exception{
-        PropertiesConfiguration config = new PropertiesConfiguration("config.properties");
+        PropertiesConfiguration config = new PropertiesConfiguration("fizz.properties");
         config.setProperty("amount.definedNumbers", 3);
         config.setProperty("value.args", "2,3,5");
         config.save();

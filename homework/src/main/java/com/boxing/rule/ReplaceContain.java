@@ -1,15 +1,17 @@
 package com.boxing.rule;
 
-import org.apache.commons.lang3.text.WordUtils;
-
 public class ReplaceContain implements Replace {
-    private enum ContainTag {
-        FIZZ, WHIZZ, BUZZ
+    private String[] containDefinedString;
+
+    public ReplaceContain(String[] containDefinedString) {
+        this.containDefinedString = containDefinedString;
     }
 
     public String replace(int number, int[] definedNumbers) {
-        for (int index=0;index<3;index++) {
-            if (containDefinedNumber(number, definedNumbers, index)) {return tagContain(index);}
+        for (int index = 0; index < Math.min(definedNumbers.length,containDefinedString.length); index++) {
+            if (containDefinedNumber(number, definedNumbers, index)) {
+                return containDefinedString[index];
+            }
         }
         return Integer.toString(number);
     }
@@ -18,9 +20,5 @@ public class ReplaceContain implements Replace {
         String sequence = Integer.toString(number);
         String character = Integer.toString(definedNumbers[index]);
         return sequence.contains(character);
-    }
-
-    private String tagContain(int index) {
-        return WordUtils.capitalizeFully(ContainTag.values()[index].name());
     }
 }

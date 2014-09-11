@@ -4,8 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Properties;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -32,8 +34,13 @@ public class ReplaceMultipleTest {
         public String oneMultipleTag;
 
         @Test
-        public void inputIsOnlyMultipleOfOneDefinedNumberShouldReturnOneWord() {
-            Replace replace = new ReplaceMultiple();
+        public void inputIsOnlyMultipleOfOneDefinedNumberShouldReturnOneWord() throws Exception{
+            Properties config = new Properties();
+            InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
+            config.load(in);
+            in.close();
+            String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
+            Replace replace = new ReplaceMultiple(multipleDefinedString);
             assertThat(replace.replace(inputIsOnlyMultipleOfOneDefinedNumber, new int[] {3, 4, 7, 5}), is(oneMultipleTag));
         }
     }
@@ -59,8 +66,13 @@ public class ReplaceMultipleTest {
         public String twoMultipleTag;
 
         @Test
-        public void inputIsMultipleOfTwoDefinedNumbersShouldReturnTwoWords() {
-            Replace replace = new ReplaceMultiple();
+        public void inputIsMultipleOfTwoDefinedNumbersShouldReturnTwoWords() throws Exception{
+            Properties config = new Properties();
+            InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
+            config.load(in);
+            in.close();
+            String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
+            Replace replace = new ReplaceMultiple(multipleDefinedString);
             assertThat(replace.replace(inputIsMultipleOfTwoDefinedNumbers, new int[] {3, 4, 7, 5}), is(twoMultipleTag));
         }
     }
@@ -84,21 +96,36 @@ public class ReplaceMultipleTest {
         public String threeMultipleTag;
 
         @Test
-        public void inputIsMultipleOfThreeDefinedNumbersShouldReturnThreeWords() {
-            Replace replace = new ReplaceMultiple();
+        public void inputIsMultipleOfThreeDefinedNumbersShouldReturnThreeWords() throws Exception{
+            Properties config = new Properties();
+            InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
+            config.load(in);
+            in.close();
+            String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
+            Replace replace = new ReplaceMultiple(multipleDefinedString);
             assertThat(replace.replace(inputIsMultipleOfThreeDefinedNumbers, new int[] {3, 4, 7, 5}), is(threeMultipleTag));
         }
     }
 
     @Test
-    public void inputIsMultipleOfFourDefinedNumbersShouldReturnFizzBuzzWhizzMurmur() {
-        Replace replace = new ReplaceMultiple();
+    public void inputIsMultipleOfFourDefinedNumbersShouldReturnFizzBuzzWhizzMurmur() throws Exception{
+        Properties config = new Properties();
+        InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
+        config.load(in);
+        in.close();
+        String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
+        Replace replace = new ReplaceMultiple(multipleDefinedString);
         assertThat(replace.replace(1260, new int[] {3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
     }
 
     @Test
-    public void inputNotMultipleOfAnyDefinedNumberShouldReturnItself() {
-        Replace replace = new ReplaceMultiple();
+    public void inputNotMultipleOfAnyDefinedNumberShouldReturnItself() throws Exception{
+        Properties config = new Properties();
+        InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
+        config.load(in);
+        in.close();
+        String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
+        Replace replace = new ReplaceMultiple(multipleDefinedString);
         assertThat(replace.replace(11, new int[] {3, 4, 7, 5}), is("11"));
     }
 }

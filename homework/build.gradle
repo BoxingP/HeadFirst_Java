@@ -28,7 +28,7 @@ task hello << {
 
 task fizz(type: JavaExec) {
     Properties properties = new Properties()
-    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/config.properties")
+    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/fizz.properties")
     properties.load(propertiesFile.newDataInputStream())
     properties.setProperty("amount.definedNumbers", "3")
     properties.setProperty("value.args", "2,3,4")
@@ -42,7 +42,7 @@ task fizz(type: JavaExec) {
 
 task fizzMuMu(type: JavaExec) {
     Properties properties = new Properties()
-    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/config.properties")
+    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/fizz.properties")
     properties.load(propertiesFile.newDataInputStream())
     properties.setProperty("amount.definedNumbers", "4")
     properties.setProperty("value.args", "2,3,4,5")

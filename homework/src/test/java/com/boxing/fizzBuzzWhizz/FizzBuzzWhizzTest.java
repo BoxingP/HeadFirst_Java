@@ -19,12 +19,19 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void testNumberWithCorrectDefinedNumbersShouldReturnCorrectString() throws Exception{
-        PropertiesConfiguration config = new PropertiesConfiguration("fizz.properties");
-        config.setProperty("amount.definedNumbers", 3);
-        config.setProperty("value.args", "2,3,5");
-        config.save();
-        String[] args = config.getStringArray("value.args");
+    public void testNumberWithDefinedNumbersAmountIsThreeShouldReturnCorrectString() throws Exception{
+        System.setProperty("name","fizz");
+        String[] args = new String[] {"2","3","5"};
+        FizzBuzzWhizz.main(args);
+        String[] outputList = output.toString().split("\\n");
+        int testNumber = 15;
+        assertThat(outputList[testNumber-1], is("Buzz"));
+    }
+
+    @Test
+    public void testNumberWithDefinedNumbersAmountIsFourShouldReturnCorrectString() throws Exception{
+        System.setProperty("name","fizzMuMu");
+        String[] args = new String[] {"2","3","5","7"};
         FizzBuzzWhizz.main(args);
         String[] outputList = output.toString().split("\\n");
         int testNumber = 15;

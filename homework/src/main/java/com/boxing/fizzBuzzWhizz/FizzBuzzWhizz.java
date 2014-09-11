@@ -13,13 +13,13 @@ import java.util.Properties;
 public class FizzBuzzWhizz {
     public static void main(String[] args) throws Exception{
         Properties config = new Properties();
-        InputStream in = FizzBuzzWhizz.class.getResourceAsStream("/fizz.properties");
+        InputStream in = FizzBuzzWhizz.class.getResourceAsStream("/"+System.getProperty("name")+".properties");
         config.load(in);
         in.close();
-        int amount = Integer.parseInt(config.getProperty("amount.definedNumbers"));
+
         String[] containDefinedString = config.getProperty("value.contain.definedString").split(",");
         String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
-        args = System.getProperty("args")!=null ? System.getProperty("args").split("\\D"):config.getProperty("value.args").split("\\D");
+        int amount = Integer.parseInt(config.getProperty("amount.definedNumbers"));
         InputAndOutput inputAndOutput = new InputAndOutput();
 
         int[] definedNumbers = new Converter().convert(args);

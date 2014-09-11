@@ -20,7 +20,7 @@ public class ReplaceMultipleTest {
     @Before
     public void initObject() throws Exception{
         Properties config = new Properties();
-        InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
+        InputStream in = this.getClass().getResourceAsStream("/fizzMuMu.properties");
         config.load(in);
         in.close();
         String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");

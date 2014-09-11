@@ -27,13 +27,8 @@ task hello << {
 }
 
 task fizz(type: JavaExec) {
-    Properties properties = new Properties()
-    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/fizz.properties")
-    properties.load(propertiesFile.newDataInputStream())
-    properties.setProperty("amount.definedNumbers", "3")
-    properties.setProperty("value.args", "2,3,4")
-    properties.store(propertiesFile.newOutputStream(), null)
-    String input = project.hasProperty("args") ? project.getProperty("args") : properties.getProperty("value.args")
+    String input = project.getProperty("args")
+    systemProperty("name","fizz")
 
     main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
     args = input.split("\\D").toList()
@@ -41,13 +36,8 @@ task fizz(type: JavaExec) {
 }
 
 task fizzMuMu(type: JavaExec) {
-    Properties properties = new Properties()
-    File propertiesFile = new File("/Users/bxpeng/HeadFirst_Java/homework/src/main/resources/fizz.properties")
-    properties.load(propertiesFile.newDataInputStream())
-    properties.setProperty("amount.definedNumbers", "4")
-    properties.setProperty("value.args", "2,3,4,5")
-    properties.store(propertiesFile.newOutputStream(), null)
-    String input = project.hasProperty("args") ? project.getProperty("args") : properties.getProperty("value.args")
+    String input = project.getProperty("args")
+    systemProperty("name","fizzMuMu")
 
     main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
     args = input.split("\\D").toList()

@@ -1,5 +1,6 @@
 package com.boxing.rule;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -14,6 +15,17 @@ import static org.junit.Assert.assertThat;
 import static org.junit.runners.Parameterized.*;
 
 public class ReplaceMultipleTest {
+    private static Replace replace;
+
+    @Before
+    public void initObject() throws Exception{
+        Properties config = new Properties();
+        InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
+        config.load(in);
+        in.close();
+        String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
+        replace = new ReplaceMultiple(multipleDefinedString);
+    }
 
     @RunWith(Parameterized.class)
     public static class ReplaceOnlyOneDefinedNumberMultipleTest {
@@ -35,12 +47,6 @@ public class ReplaceMultipleTest {
 
         @Test
         public void inputIsOnlyMultipleOfOneDefinedNumberShouldReturnOneWord() throws Exception{
-            Properties config = new Properties();
-            InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
-            config.load(in);
-            in.close();
-            String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
-            Replace replace = new ReplaceMultiple(multipleDefinedString);
             assertThat(replace.replace(inputIsOnlyMultipleOfOneDefinedNumber, new int[] {3, 4, 7, 5}), is(oneMultipleTag));
         }
     }
@@ -67,12 +73,6 @@ public class ReplaceMultipleTest {
 
         @Test
         public void inputIsMultipleOfTwoDefinedNumbersShouldReturnTwoWords() throws Exception{
-            Properties config = new Properties();
-            InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
-            config.load(in);
-            in.close();
-            String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
-            Replace replace = new ReplaceMultiple(multipleDefinedString);
             assertThat(replace.replace(inputIsMultipleOfTwoDefinedNumbers, new int[] {3, 4, 7, 5}), is(twoMultipleTag));
         }
     }
@@ -97,35 +97,17 @@ public class ReplaceMultipleTest {
 
         @Test
         public void inputIsMultipleOfThreeDefinedNumbersShouldReturnThreeWords() throws Exception{
-            Properties config = new Properties();
-            InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
-            config.load(in);
-            in.close();
-            String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
-            Replace replace = new ReplaceMultiple(multipleDefinedString);
             assertThat(replace.replace(inputIsMultipleOfThreeDefinedNumbers, new int[] {3, 4, 7, 5}), is(threeMultipleTag));
         }
     }
 
     @Test
     public void inputIsMultipleOfFourDefinedNumbersShouldReturnFizzBuzzWhizzMurmur() throws Exception{
-        Properties config = new Properties();
-        InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
-        config.load(in);
-        in.close();
-        String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
-        Replace replace = new ReplaceMultiple(multipleDefinedString);
         assertThat(replace.replace(1260, new int[] {3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
     }
 
     @Test
     public void inputNotMultipleOfAnyDefinedNumberShouldReturnItself() throws Exception{
-        Properties config = new Properties();
-        InputStream in = this.getClass().getResourceAsStream("/fizz.properties");
-        config.load(in);
-        in.close();
-        String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
-        Replace replace = new ReplaceMultiple(multipleDefinedString);
         assertThat(replace.replace(11, new int[] {3, 4, 7, 5}), is("11"));
     }
 }

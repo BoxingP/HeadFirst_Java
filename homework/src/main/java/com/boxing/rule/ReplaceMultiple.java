@@ -10,7 +10,7 @@ public class ReplaceMultiple implements Replace {
     public String replace(int number, int[] definedNumbers) {
         StringBuilder sequence = new StringBuilder();
 
-        for (int index=0;index< Math.min(definedNumbers.length,multipleDefinedString.length);index++) {
+        for (int index=0;index< definedNumbers.length;index++) {
             if (number% definedNumbers[index]==0) { sequence.append(multipleDefinedString[index]); }
         }
         if (sequence.length()==0) { sequence.append(number); }

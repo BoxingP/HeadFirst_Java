@@ -22,7 +22,10 @@ public class FizzBuzzWhizz {
         InputAndOutput inputAndOutput = new InputAndOutput();
 
         int[] definedNumbers = new Converter().convert(args);
-        if (!new Validator(amount).isValid(definedNumbers)) { return; }
+        if (!new Validator(amount).isValid(definedNumbers)) {
+            System.out.println("Input is NOT legal.");
+            return;
+        }
 
         List<Replace> replaceList = Arrays.asList(new ReplaceContain(containDefinedString), new ReplaceFourMultiple(multipleFourDefinedString), new ReplaceMultiple(multipleDefinedString));
         ReplaceRules replaceRuler = new ReplaceRules(replaceList);

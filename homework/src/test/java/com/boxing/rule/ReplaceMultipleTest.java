@@ -5,10 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Properties;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -19,11 +17,7 @@ public class ReplaceMultipleTest {
 
     @Before
     public void initObject() throws Exception{
-        Properties config = new Properties();
-        InputStream in = this.getClass().getResourceAsStream("/fizzMuMu.properties");
-        config.load(in);
-        in.close();
-        String[] multipleDefinedString = config.getProperty("value.multiple.definedString").split(",");
+        String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
         replace = new ReplaceMultiple(multipleDefinedString);
     }
 

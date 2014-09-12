@@ -2,7 +2,6 @@ package com.boxing.unit;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.io.ByteArrayInputStream;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -2,7 +2,6 @@ package com.boxing.fizzBuzzWhizz;
 
 import java.io.*;
 
-import org.apache.commons.configuration.PropertiesConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 

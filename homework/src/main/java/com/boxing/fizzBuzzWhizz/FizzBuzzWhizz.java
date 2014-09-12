@@ -2,9 +2,7 @@ package com.boxing.fizzBuzzWhizz;
 
 import com.boxing.rule.*;
 import com.boxing.unit.*;
-import org.apache.commons.configuration.PropertiesConfiguration;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;

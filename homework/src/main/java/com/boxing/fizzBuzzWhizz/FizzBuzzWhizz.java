@@ -5,6 +5,7 @@ import com.boxing.unit.*;
 
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.Properties;
 
@@ -23,8 +24,7 @@ public class FizzBuzzWhizz {
 
         int[] definedNumbers = new Converter().convert(args);
         if (!new Validator(amount).isValid(definedNumbers)) {
-            System.out.println("Input is NOT legal.");
-            return;
+            throw new NumberFormatException("Only non repeating digits are allowed!");
         }
 
         List<Replace> replaceList = Arrays.asList(new ReplaceContain(containDefinedString), new ReplaceFourMultiple(multipleFourDefinedString), new ReplaceMultiple(multipleDefinedString));

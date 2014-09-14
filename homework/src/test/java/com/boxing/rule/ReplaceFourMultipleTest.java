@@ -11,7 +11,7 @@ public class ReplaceFourMultipleTest {
 
     @Before
     public void initObject() {
-        replace = new ReplaceFourMultiple("Bingo");
+        replace = new ReplaceFourMultiple(new String[]{"Bingo"});
     }
 
     @Test

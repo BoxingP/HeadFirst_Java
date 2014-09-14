@@ -4,8 +4,8 @@ public class ReplaceFourMultiple implements Replace{
     private String multipleFourDefinedString;
     private Replace next=null;
 
-    public ReplaceFourMultiple(String multipleFourDefinedString){
-        this.multipleFourDefinedString = multipleFourDefinedString;
+    public ReplaceFourMultiple(String[] multipleFourDefinedString){
+        this.multipleFourDefinedString = multipleFourDefinedString[0];
     }
 
     public void setNext(Replace replace) {

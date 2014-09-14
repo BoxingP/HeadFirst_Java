@@ -1,15 +1,10 @@
 package com.boxing.rule;
 
-public class ReplaceMultiple implements Replace {
+public class ReplaceMultiple extends Replace {
     private String[] multipleDefinedString;
-    private Replace next=null;
 
     public ReplaceMultiple(String[] multipleDefinedString){
         this.multipleDefinedString = multipleDefinedString;
-    }
-
-    public void setNext(Replace replace) {
-        next = replace;
     }
 
     public String replace(int number, int[] definedNumbers) {

@@ -1,15 +1,10 @@
 package com.boxing.rule;
 
-public class ReplaceFourMultiple implements Replace{
+public class ReplaceFourMultiple extends Replace{
     private String multipleFourDefinedString;
-    private Replace next=null;
 
     public ReplaceFourMultiple(String[] multipleFourDefinedString){
         this.multipleFourDefinedString = multipleFourDefinedString[0];
-    }
-
-    public void setNext(Replace replace) {
-        next = replace;
     }
 
     public String replace(int number, int[] definedNumbers) {

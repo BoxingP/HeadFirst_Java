@@ -1,6 +1,10 @@
 package com.boxing.rule;
 
-public interface Replace {
-    public void setNext(Replace replace);
-    public String replace(int number, int[] definedNumbers);
+public abstract class Replace {
+    protected Replace next=null;
+
+    public void setNext(Replace replace) {
+        next = replace;
+    }
+    public abstract String replace(int number, int[] definedNumbers);
 }

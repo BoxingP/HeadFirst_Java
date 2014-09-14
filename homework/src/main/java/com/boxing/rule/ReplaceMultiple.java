@@ -2,9 +2,14 @@ package com.boxing.rule;
 
 public class ReplaceMultiple implements Replace {
     private String[] multipleDefinedString;
+    private Replace next=null;
 
     public ReplaceMultiple(String[] multipleDefinedString){
         this.multipleDefinedString = multipleDefinedString;
+    }
+
+    public void setNext(Replace replace) {
+        next = replace;
     }
 
     public String replace(int number, int[] definedNumbers) {
@@ -14,6 +19,6 @@ public class ReplaceMultiple implements Replace {
             if (number% definedNumbers[index]==0) { sequence.append(multipleDefinedString[index]); }
         }
         if (sequence.length()==0) { sequence.append(number); }
-        return sequence.toString();
+        return next!=null ? next.replace(number, definedNumbers):sequence.toString();
     }
 }

@@ -15,26 +15,54 @@ public class ReplaceRulesTest {
     private Replace ruleWhichReturnZz;
     private Replace ruleWhichReturnAa;
     private Replace ruleWhichReturnNumber;
-
+    private Replace ruleWhichNextIsNullReturnNumber;
 
     @Before
     public void initObject() {
         definedNumbers = new int[] {};
         ruleWhichReturnZz = new Replace() {
+            private Replace next=null;
+            @Override
+            public void setNext(Replace replace) {
+                next = replace;
+            }
             @Override
             public String replace(int number, int[] definedNumbers) {
                 return "zz";
             }
         };
         ruleWhichReturnAa = new Replace() {
+            private Replace next=null;
+            @Override
+            public void setNext(Replace replace) {
+                next = replace;
+            }
             @Override
             public String replace(int number, int[] definedNumbers) {
                 return "aa";
             }
         };
         ruleWhichReturnNumber = new Replace() {
+            private Replace next=null;
+            @Override
+            public void setNext(Replace replace) {
+                next = replace;
+            }
             @Override
             public String replace(int number, int[] definedNumbers) {
+                if (next!=null) { return next.replace(number, definedNumbers); }
+                return "22";
+            }
+        };
+        ruleWhichNextIsNullReturnNumber = new Replace() {
+            private Replace next=null;
+            @Override
+            public void setNext(Replace replace) {
+                next = replace;
+            }
+            @Override
+            public String replace(int number, int[] definedNumbers) {
+                if (next!=null) { return next.replace(number, definedNumbers); }
                 return "22";
             }
         };
@@ -61,7 +89,7 @@ public class ReplaceRulesTest {
 
     @Test
     public void thereIsTwoRulesThatBothWillReturnNumberThenRuleShouldReturnNumber() {
-        ReplaceRules rules = new ReplaceRules( Arrays.asList(ruleWhichReturnNumber,ruleWhichReturnNumber) );
+        ReplaceRules rules = new ReplaceRules( Arrays.asList(ruleWhichNextIsNullReturnNumber,ruleWhichReturnNumber) );
         assertThat(rules.rule(44, definedNumbers), is("22"));
     }
 }

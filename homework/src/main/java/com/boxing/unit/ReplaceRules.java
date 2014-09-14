@@ -12,15 +12,15 @@ public class ReplaceRules {
     }
 
     public String rule(int number, int[] definedNumbers) {
-        String result = String.valueOf(number);
-        for (Replace replace : replaceList) {
-            result = replace.replace(number, definedNumbers);
-            if (isHandled(result)) { return result; }
-        }
-        return result;
+        Replace chain = createChain();
+        return chain.replace(number, definedNumbers);
     }
 
-    private boolean isHandled(String result) {
-        return !result.matches(".*\\d.*");
+    private Replace createChain() {
+        replaceList.size();
+        for (int index=0;index<replaceList.size()-1;index++) {
+            replaceList.get(index).setNext(replaceList.get(index+1));
+        }
+        return replaceList.get(0);
     }
 }

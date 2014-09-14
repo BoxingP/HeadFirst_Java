@@ -1,18 +1,25 @@
 package com.boxing.rule;
 
 public class ReplaceFourMultiple implements Replace{
-    String multipleFourDefinedString;
+    private String multipleFourDefinedString;
+    private Replace next=null;
 
     public ReplaceFourMultiple(String multipleFourDefinedString){
         this.multipleFourDefinedString = multipleFourDefinedString;
     }
 
+    public void setNext(Replace replace) {
+        next = replace;
+    }
+
     public String replace(int number, int[] definedNumbers) {
-        if (definedNumbers.length!=4) return String.valueOf(number);
-        for (int index=0;index<definedNumbers.length;index++) {
-            if (number%definedNumbers[index]!=0) return String.valueOf(number);
+        if (definedNumbers.length==4) {
+            for (int definedNumber : definedNumbers) {
+                if (number % definedNumber != 0) break;
+                return multipleFourDefinedString;
+            }
         }
-        return multipleFourDefinedString;
+        return next!=null ? next.replace(number, definedNumbers):String.valueOf(number);
     }
 
 }

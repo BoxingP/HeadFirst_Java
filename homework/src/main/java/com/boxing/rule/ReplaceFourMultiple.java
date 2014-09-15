@@ -14,7 +14,7 @@ public class ReplaceFourMultiple extends Replace{
                 return multipleFourDefinedString;
             }
         }
-        return next!=null ? next.replace(number, definedNumbers):String.valueOf(number);
+        return next.replace(number, definedNumbers);
     }
 
 }

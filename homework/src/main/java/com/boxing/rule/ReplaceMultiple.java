@@ -13,7 +13,6 @@ public class ReplaceMultiple extends Replace {
         for (int index=0;index< definedNumbers.length;index++) {
             if (number% definedNumbers[index]==0) { sequence.append(multipleDefinedString[index]); }
         }
-        if (sequence.length()==0) { sequence.append(number); }
-        return next!=null ? next.replace(number, definedNumbers):sequence.toString();
+        return sequence.length()!=0 ? sequence.toString():next.replace(number, definedNumbers);
     }
 }

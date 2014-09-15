@@ -31,12 +31,7 @@ public class ReplaceContainTest {
     }
 
     @Test
-    public void inputNotContainTheDefinedNumberAndNextIsNullShouldReturnItself() {
-        assertThat(replace.replace(51, new int[] {2, 3, 4, 5}), is("51"));
-    }
-
-    @Test
-    public void inputNotContainTheDefinedNumberAndNextIsNotNullShouldReturnNext() {
+    public void inputNotContainTheDefinedNumberShouldReturnNext() {
         Replace next=new Replace() {
             @Override
             public String replace(int number, int[] definedNumbers) {

@@ -101,12 +101,7 @@ public class ReplaceMultipleTest {
     }
 
     @Test
-    public void inputNotMultipleOfAnyDefinedNumberAndNextIsNullShouldReturnItself() {
-        assertThat(replace.replace(11, new int[] {3, 4, 7, 5}), is("11"));
-    }
-
-    @Test
-    public void inputNotMultipleOfAnyDefinedNumberAndNextIsNotNullShouldReturnNext() {
+    public void inputNotMultipleOfAnyDefinedNumberShouldReturnNext() {
         Replace next=new Replace() {
             @Override
             public String replace(int number, int[] definedNumbers) {

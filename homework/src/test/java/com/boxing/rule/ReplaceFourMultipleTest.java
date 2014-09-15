@@ -25,12 +25,7 @@ public class ReplaceFourMultipleTest {
     }
 
     @Test
-    public void inputIsCommonMultipleOfDefinedNumbersAmountIsFiveAndNextIsNullShouldReturnItself() {
-        assertThat(replace.replace(1260, new int[] {3, 4, 7, 5, 9}), is("1260"));
-    }
-
-    @Test
-    public void inputIsCommonMultipleOfDefinedNumbersAmountIsFiveAndNextIsNOtNullShouldReturnNext() {
+    public void inputIsCommonMultipleOfDefinedNumbersAmountIsFiveShouldReturnNext() {
         Replace next=new Replace() {
             @Override
             public String replace(int number, int[] definedNumbers) {

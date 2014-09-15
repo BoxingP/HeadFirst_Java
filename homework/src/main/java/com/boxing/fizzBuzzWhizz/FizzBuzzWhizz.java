@@ -27,12 +27,13 @@ public class FizzBuzzWhizz {
         String[] definedStringList = config.getProperty("definedString.list").split(",");
         String[] replaceRuleList = config.getProperty("replace.rule.list").split(",");
         List<Replace> replaceList = new ArrayList<Replace>();
-        for (int index=0;index<replaceRuleList.length;index++) {
+        for (int index=0;index<definedStringList.length;index++) {
             Constructor constructor = Class.forName(replaceRuleList[index]).getConstructor(new Class[]{String[].class});
             String[] definedString = config.getProperty(definedStringList[index]).split(",");
             Replace replace = (Replace) constructor.newInstance(new Object[]{definedString});
             replaceList.add(replace);
         }
+        replaceList.add(new ReturnNumber());
 
         ReplaceRules replaceRuler = new ReplaceRules(replaceList);
         for (int number=1;number<101;number++) {

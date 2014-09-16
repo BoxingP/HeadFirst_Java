@@ -1,7 +1,11 @@
 package com.boxing.rule;
 
 public abstract class Replace {
-    protected Replace next=null;
+    private Replace next=null;
+
+    protected String doNext(int number, int[] definedNumbers) {
+        return next.replace(number, definedNumbers);
+    }
 
     public void setNext(Replace replace) {
         next = replace;

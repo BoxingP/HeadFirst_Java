@@ -13,7 +13,7 @@ public class ReplaceContain extends Replace {
                 return containDefinedString[index];
             }
         }
-        return next.replace(number, definedNumbers);
+        return doNext(number,definedNumbers);
     }
 
     private static boolean containDefinedNumber(int number, int[] definedNumbers, int index) {

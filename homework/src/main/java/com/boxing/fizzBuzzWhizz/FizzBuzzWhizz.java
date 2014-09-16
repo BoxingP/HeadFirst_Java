@@ -16,23 +16,23 @@ public class FizzBuzzWhizz {
         config.load(in);
         in.close();
 
-        int amount = Integer.parseInt(config.getProperty("amount.definedNumbers"));
+        int amount = Integer.parseInt(config.getProperty("amount.specialNumbers"));
         InputAndOutput inputAndOutput = new InputAndOutput();
 
-        int[] definedNumbers = new Converter().convert(args);
-        if (!new Validator(amount).isValid(definedNumbers)) {
-            throw new NumberFormatException("Only non repeating digits are allowed!");
+        int[] specialNumbers = new Converter().convert(args);
+        if (!new Validator(amount).isValid(specialNumbers)) {
+            throw new IllegalArgumentException("Only non repeating digits are allowed!");
         }
 
         Replace chain = createChain(initReplaceList(config));
         for (int number=1;number<101;number++) {
-            String result = chain.replace(number, definedNumbers);
+            String result = chain.replace(number, specialNumbers);
             inputAndOutput.printOutput(result);
         }
     }
 
     private static List<Replace> initReplaceList(Properties config) throws Exception{
-        String[] definedStringList = config.getProperty("definedString.list").split(",");
+        String[] definedStringList = config.getProperty("specialString.list").split(",");
         String[] replaceRuleList = config.getProperty("replace.rule.list").split(",");
         List<Replace> replaceList = new ArrayList<>();
 

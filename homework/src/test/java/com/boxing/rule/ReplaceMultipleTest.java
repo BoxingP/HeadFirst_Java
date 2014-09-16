@@ -104,7 +104,7 @@ public class ReplaceMultipleTest {
     public void inputNotMultipleOfAnyDefinedNumberShouldReturnNext() {
         Replace next=new Replace() {
             @Override
-            public String replace(int number, int[] definedNumbers) {
+            public String replace(int number, int[] specialNumbers) {
                 return "Next";
             }
         };

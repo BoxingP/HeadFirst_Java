@@ -7,14 +7,14 @@ public class ReplaceFourMultiple extends Replace{
         this.multipleFourDefinedString = multipleFourDefinedString[0];
     }
 
-    public String replace(int number, int[] definedNumbers) {
-        if (definedNumbers.length==4) {
-            for (int definedNumber : definedNumbers) {
+    public String replace(int number, int[] specialNumbers) {
+        if (specialNumbers.length==4) {
+            for (int definedNumber : specialNumbers) {
                 if (number % definedNumber != 0) break;
                 return multipleFourDefinedString;
             }
         }
-        return doNext(number, definedNumbers);
+        return doNext(number, specialNumbers);
     }
 
 }

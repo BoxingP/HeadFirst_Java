@@ -7,13 +7,13 @@ public class ReplaceContain extends Replace {
         this.containDefinedString = containDefinedString;
     }
 
-    public String replace(int number, int[] definedNumbers) {
-        for (int index = 0; index < Math.min(definedNumbers.length,containDefinedString.length); index++) {
-            if (containDefinedNumber(number, definedNumbers, index)) {
+    public String replace(int number, int[] specialNumbers) {
+        for (int index = 0; index < Math.min(specialNumbers.length,containDefinedString.length); index++) {
+            if (containDefinedNumber(number, specialNumbers, index)) {
                 return containDefinedString[index];
             }
         }
-        return doNext(number,definedNumbers);
+        return doNext(number, specialNumbers);
     }
 
     private static boolean containDefinedNumber(int number, int[] definedNumbers, int index) {

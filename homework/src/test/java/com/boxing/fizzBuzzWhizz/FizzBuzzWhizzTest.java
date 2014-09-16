@@ -53,7 +53,7 @@ public class FizzBuzzWhizzTest {
 
     @Test
     public void definedNumbersContainRepeatingDigitShouldThrowsAnException() throws Exception{
-        thrown.expect(NumberFormatException.class);
+        thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Only non repeating digits are allowed!");
         System.setProperty("name","fizzMuMu");
         String[] args = new String[] {"2","2","5","7"};
@@ -62,7 +62,7 @@ public class FizzBuzzWhizzTest {
 
     @Test
     public void definedNumbersContainNonDigitShouldThrowsAnException() throws Exception{
-        thrown.expect(NumberFormatException.class);
+        thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Only non repeating digits are allowed!");
         System.setProperty("name","fizzMuMu");
         String[] args = new String[] {"2","31","5","7"};

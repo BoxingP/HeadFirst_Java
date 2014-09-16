@@ -24,9 +24,18 @@ public class FizzBuzzWhizz {
             throw new NumberFormatException("Only non repeating digits are allowed!");
         }
 
+        Replace chain = createChain(initReplaceList(config));
+        for (int number=1;number<101;number++) {
+            String result = chain.replace(number, definedNumbers);
+            inputAndOutput.printOutput(result);
+        }
+    }
+
+    private static List<Replace> initReplaceList(Properties config) throws Exception{
         String[] definedStringList = config.getProperty("definedString.list").split(",");
         String[] replaceRuleList = config.getProperty("replace.rule.list").split(",");
-        List<Replace> replaceList = new ArrayList<Replace>();
+        List<Replace> replaceList = new ArrayList<>();
+
         for (int index=0;index<definedStringList.length;index++) {
             Constructor constructor = Class.forName(replaceRuleList[index]).getConstructor(new Class[]{String[].class});
             String[] definedString = config.getProperty(definedStringList[index]).split(",");
@@ -34,11 +43,14 @@ public class FizzBuzzWhizz {
             replaceList.add(replace);
         }
         replaceList.add(new ReturnNumber());
+        return replaceList;
+    }
 
-        ReplaceRules replaceRuler = new ReplaceRules(replaceList);
-        for (int number=1;number<101;number++) {
-            String result = replaceRuler.rule(number,definedNumbers);
-            inputAndOutput.printOutput(result);
+    private static Replace createChain(List<Replace> replaceList) {
+        replaceList.size();
+        for (int index=0;index<replaceList.size()-1;index++) {
+            replaceList.get(index).setNext(replaceList.get(index+1));
         }
+        return replaceList.get(0);
     }
 }

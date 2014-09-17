@@ -15,11 +15,12 @@ public class FizzBuzzWhizz {
     public static void main(String[] args) throws Exception {
         readConfig();
 
-        int amount = (Integer) context.getBean("amountValue");
         InputAndOutput inputAndOutput = new InputAndOutput();
 
         int[] specialNumbers = new Converter().convert(args);
-        if (!new Validator(amount).isValid(specialNumbers)) {
+
+        Validator validator = (Validator) context.getBean("validator");
+        if (!validator.isValid(specialNumbers)) {
             throw new IllegalArgumentException("Only non repeating digits are allowed!");
         }
 

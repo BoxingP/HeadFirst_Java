@@ -8,20 +8,11 @@
         <constructor-arg type="int" value="3"/>
     </bean>
 
-    <bean id="ruleList" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="containRule"/>
-                <ref bean="multipleRule"/>
-                <ref bean="lastRule"/>
-            </list>
-        </constructor-arg>
-    </bean>
-
     <bean id="containRule" class="com.boxing.rule.ContainRule">
         <constructor-arg type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
         <property name="next" ref="multipleRule"/>
     </bean>
+
 
     <bean id="multipleRule" class="com.boxing.rule.MultipleRule">
         <constructor-arg type="java.lang.String[]" value="Fizz,Buzz,Whizz"/>

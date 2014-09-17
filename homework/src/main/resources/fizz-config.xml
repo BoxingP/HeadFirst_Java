@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="amountValue" class="java.lang.Integer">
+        <constructor-arg type="int" value="3"/>
+    </bean>
+
+    <bean id="replaceRuleList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="replaceContain"/><ref bean="replaceMultiple"/><ref bean="returnNumber"/>
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="replaceContain" class="com.boxing.rule.ReplaceContain">
+        <constructor-arg type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
+        <property name="next" ref="replaceMultiple"/>
+    </bean>
+
+    <bean id="replaceMultiple" class="com.boxing.rule.ReplaceMultiple">
+        <constructor-arg type="java.lang.String[]" value="Fizz,Buzz,Whizz"/>
+        <property name="next" ref="returnNumber"/>
+    </bean>
+
+    <bean id="returnNumber" class="com.boxing.rule.ReturnNumber">
+    </bean>
+
+</beans>

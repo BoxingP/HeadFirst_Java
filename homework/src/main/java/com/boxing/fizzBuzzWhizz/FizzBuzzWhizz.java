@@ -2,21 +2,22 @@ package com.boxing.fizzBuzzWhizz;
 
 import com.boxing.rule.*;
 import com.boxing.unit.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class FizzBuzzWhizz {
-    public static void main(String[] args) throws Exception{
-        Properties config = new Properties();
-        InputStream in = FizzBuzzWhizz.class.getResourceAsStream("/"+System.getProperty("name")+".properties");
-        config.load(in);
-        in.close();
+    private static ApplicationContext context;
 
-        int amount = Integer.parseInt(config.getProperty("amount.specialNumbers"));
+    private static void readConfig() throws Exception{
+        context = new ClassPathXmlApplicationContext(System.getProperty("name")+".xml");
+    }
+
+    public static void main(String[] args) throws Exception{
+        readConfig();
+
+        int amount = (Integer) context.getBean("amountValue");
         InputAndOutput inputAndOutput = new InputAndOutput();
 
         int[] specialNumbers = new Converter().convert(args);
@@ -24,25 +25,16 @@ public class FizzBuzzWhizz {
             throw new IllegalArgumentException("Only non repeating digits are allowed!");
         }
 
-        Replace chain = createChain(initReplaceList(config));
+        Replace chain = createChain(initReplaceList());
         for (int number=1;number<101;number++) {
             String result = chain.replace(number, specialNumbers);
             inputAndOutput.printOutput(result);
         }
     }
 
-    private static List<Replace> initReplaceList(Properties config) throws Exception{
-        String[] definedStringList = config.getProperty("specialString.list").split(",");
-        String[] replaceRuleList = config.getProperty("replace.rule.list").split(",");
-        List<Replace> replaceList = new ArrayList<>();
+    private static List<Replace> initReplaceList() {
 
-        for (int index=0;index<definedStringList.length;index++) {
-            Constructor constructor = Class.forName(replaceRuleList[index]).getConstructor(new Class[]{String[].class});
-            String[] definedString = config.getProperty(definedStringList[index]).split(",");
-            Replace replace = (Replace) constructor.newInstance(new Object[]{definedString});
-            replaceList.add(replace);
-        }
-        replaceList.add(new ReturnNumber());
+        List<Replace> replaceList = (List<Replace>) context.getBean("replaceRuleList");
         return replaceList;
     }
 

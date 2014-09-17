@@ -7,6 +7,7 @@ repositories {
 }
 
 dependencies {
+    compile 'org.springframework:spring-context:4.1.0.RELEASE'
     testCompile 'junit:junit:4.11'
 }
 
@@ -27,7 +28,7 @@ task hello << {
 
 task fizz(type: JavaExec) {
     String input = project.getProperty("args")
-    systemProperty("name","fizz")
+    systemProperty("name","fizz-config")
 
     main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
     args = input.split("\\D").toList()
@@ -36,7 +37,7 @@ task fizz(type: JavaExec) {
 
 task fizzMuMu(type: JavaExec) {
     String input = project.getProperty("args")
-    systemProperty("name","fizzMuMu")
+    systemProperty("name","fizzMuMu-config")
 
     main = "com.boxing.fizzBuzzWhizz.FizzBuzzWhizz"
     args = input.split("\\D").toList()

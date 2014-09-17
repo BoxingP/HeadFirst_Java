@@ -16,9 +16,9 @@ public class ValidatorTest {
 
     @Test
     public void specialNumberShouldBeLimitedDifferentDigit() {
-        assertThat(validator.isValid(new int[]{2,3,5,7}), is(true));
-    } 
-    
+        assertThat(validator.isValid(new int[]{2, 3, 5, 7}), is(true));
+    }
+
     @Test
     public void specialNumberIsEmptyShouldReturnFalse() {
         assertThat(validator.isValid(new int[]{}), is(false));
@@ -26,22 +26,22 @@ public class ValidatorTest {
 
     @Test
     public void specialNumberNotCorrespondingAmountShouldReturnFalse() {
-        assertThat(validator.isValid(new int[]{2,3,5}), is(false));
+        assertThat(validator.isValid(new int[]{2, 3, 5}), is(false));
     }
-    
+
     @Test
     public void specialNumberBelowDigitShouldReturnFalse() {
-        assertThat(validator.isValid(new int[]{-1,1,12,123}), is(false));
+        assertThat(validator.isValid(new int[]{-1, 1, 12, 123}), is(false));
     }
 
     @Test
     public void specialNumberOverDigitShouldReturnFalse() {
-        assertThat(validator.isValid(new int[]{1,10,12,123}), is(false));
+        assertThat(validator.isValid(new int[]{1, 10, 12, 123}), is(false));
     }
 
     @Test
     public void specialNumberNotDifferentShouldReturnFalse() {
-        assertThat(validator.isValid(new int[]{2,3,5,5}), is(false));
+        assertThat(validator.isValid(new int[]{2, 3, 5, 5}), is(false));
     }
 
 }

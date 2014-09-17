@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class InputAndOutputTest {
-    
+
     private InputAndOutput inputAndOutput;
 
     @Before
@@ -24,6 +24,6 @@ public class InputAndOutputTest {
         System.setOut(new PrintStream(output));
         String separator = System.getProperty("line.separator");
         inputAndOutput.printOutput("FizzBuzzWhizz");
-        assertThat(output.toString(), is("FizzBuzzWhizz"+separator));
+        assertThat(output.toString(), is("FizzBuzzWhizz" + separator));
     }
 } 

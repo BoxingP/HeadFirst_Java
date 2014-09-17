@@ -11,7 +11,10 @@
     <bean id="ruleList" class="java.util.ArrayList">
         <constructor-arg>
             <list>
-                <ref bean="containRule"/><ref bean="fourMultipleRule"/><ref bean="multipleRule"/><ref bean="lastRule"/>
+                <ref bean="containRule"/>
+                <ref bean="fourMultipleRule"/>
+                <ref bean="multipleRule"/>
+                <ref bean="lastRule"/>
             </list>
         </constructor-arg>
     </bean>

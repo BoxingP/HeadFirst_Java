@@ -11,11 +11,13 @@
     <bean id="ruleList" class="java.util.ArrayList">
         <constructor-arg>
             <list>
-                <ref bean="containRule"/><ref bean="multipleRule"/><ref bean="lastRule"/>
+                <ref bean="containRule"/>
+                <ref bean="multipleRule"/>
+                <ref bean="lastRule"/>
             </list>
         </constructor-arg>
     </bean>
-    
+
     <bean id="containRule" class="com.boxing.rule.ContainRule">
         <constructor-arg type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
         <property name="next" ref="multipleRule"/>

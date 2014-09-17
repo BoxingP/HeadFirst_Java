@@ -12,16 +12,17 @@ import static org.junit.Assert.assertThat;
 import static org.junit.runners.Parameterized.*;
 
 public class MultipleRuleTest {
-    private String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
+    private String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
     private Rule rule = new MultipleRule(multipleDefinedString);
 
     @RunWith(Parameterized.class)
     public static class ReplaceOnlyOneDefinedNumberMultipleTest {
-        String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
+        String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
         Rule rule = new MultipleRule(multipleDefinedString);
+
         @Parameters
         public static Collection createInputIsOnlyMultipleOfOneDefinedNumber() {
-            return Arrays.asList(new Object[][] {
+            return Arrays.asList(new Object[][]{
                     {9, "Fizz"},
                     {16, "Buzz"},
                     {91, "Whizz"},
@@ -43,11 +44,12 @@ public class MultipleRuleTest {
 
     @RunWith(Parameterized.class)
     public static class ReplaceTwoDefinedNumbersMultipleTest {
-        String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
+        String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
         Rule rule = new MultipleRule(multipleDefinedString);
+
         @Parameters
         public static Collection createInputIsMultipleOfTwoDefinedNumbers() {
-            return Arrays.asList(new Object[][] {
+            return Arrays.asList(new Object[][]{
                     {12, "FizzBuzz"},
                     {21, "FizzWhizz"},
                     {15, "FizzMurmur"},
@@ -71,11 +73,12 @@ public class MultipleRuleTest {
 
     @RunWith(Parameterized.class)
     public static class ReplaceThreeDefinedNumbersMultipleTest {
-        String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
+        String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
         Rule rule = new MultipleRule(multipleDefinedString);
+
         @Parameters
         public static Collection createInputIsMultipleOfThreeDefinedNumbers() {
-            return Arrays.asList(new Object[][] {
+            return Arrays.asList(new Object[][]{
                     {280, "BuzzWhizzMurmur"},
                     {105, "FizzWhizzMurmur"},
                     {60, "FizzBuzzMurmur"},
@@ -102,7 +105,7 @@ public class MultipleRuleTest {
 
     @Test
     public void inputNotMultipleOfAnyDefinedNumberShouldReturnNext() {
-        Rule next=new Rule() {
+        Rule next = new Rule() {
             @Override
             public String rule(int number, int[] specialNumbers) {
                 return "Next";

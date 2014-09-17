@@ -10,11 +10,11 @@ import java.util.List;
 public class FizzBuzzWhizz {
     private static ApplicationContext context;
 
-    private static void readConfig() throws Exception{
-        context = new ClassPathXmlApplicationContext(System.getProperty("name")+".xml");
+    private static void readConfig() throws Exception {
+        context = new ClassPathXmlApplicationContext(System.getProperty("name") + ".xml");
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         readConfig();
 
         int amount = (Integer) context.getBean("amountValue");
@@ -26,7 +26,7 @@ public class FizzBuzzWhizz {
         }
 
         Rule chain = createChain(initRuleList());
-        for (int number=1;number<101;number++) {
+        for (int number = 1; number < 101; number++) {
             String result = chain.rule(number, specialNumbers);
             inputAndOutput.printOutput(result);
         }
@@ -40,8 +40,8 @@ public class FizzBuzzWhizz {
 
     private static Rule createChain(List<Rule> ruleList) {
         ruleList.size();
-        for (int index=0;index< ruleList.size()-1;index++) {
-            ruleList.get(index).setNext(ruleList.get(index+1));
+        for (int index = 0; index < ruleList.size() - 1; index++) {
+            ruleList.get(index).setNext(ruleList.get(index + 1));
         }
         return ruleList.get(0);
     }

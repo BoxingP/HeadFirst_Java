@@ -11,7 +11,7 @@ public class ContainRuleTest {
 
     @Before
     public void initObject() throws Exception {
-        String[] containDefinedString = new String[] {"Fizz","Whizz","Buzz"};
+        String[] containDefinedString = new String[]{"Fizz", "Whizz", "Buzz"};
         rule = new ContainRule(containDefinedString);
     }
 
@@ -32,7 +32,7 @@ public class ContainRuleTest {
 
     @Test
     public void inputNotContainTheDefinedNumberShouldReturnNext() {
-        Rule next=new Rule() {
+        Rule next = new Rule() {
             @Override
             public String rule(int number, int[] specialNumbers) {
                 return "Next";

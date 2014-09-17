@@ -26,7 +26,7 @@ public class FourMultipleRuleTest {
 
     @Test
     public void inputIsCommonMultipleOfDefinedNumbersAmountIsFiveShouldReturnNext() {
-        Rule next=new Rule() {
+        Rule next = new Rule() {
             @Override
             public String rule(int number, int[] specialNumbers) {
                 return "Next";

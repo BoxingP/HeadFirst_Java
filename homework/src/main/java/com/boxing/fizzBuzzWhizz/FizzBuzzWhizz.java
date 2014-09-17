@@ -25,24 +25,24 @@ public class FizzBuzzWhizz {
             throw new IllegalArgumentException("Only non repeating digits are allowed!");
         }
 
-        Replace chain = createChain(initReplaceList());
+        Rule chain = createChain(initRuleList());
         for (int number=1;number<101;number++) {
-            String result = chain.replace(number, specialNumbers);
+            String result = chain.rule(number, specialNumbers);
             inputAndOutput.printOutput(result);
         }
     }
 
-    private static List<Replace> initReplaceList() {
+    private static List<Rule> initRuleList() {
 
-        List<Replace> replaceList = (List<Replace>) context.getBean("replaceRuleList");
-        return replaceList;
+        List<Rule> ruleList = (List<Rule>) context.getBean("ruleList");
+        return ruleList;
     }
 
-    private static Replace createChain(List<Replace> replaceList) {
-        replaceList.size();
-        for (int index=0;index<replaceList.size()-1;index++) {
-            replaceList.get(index).setNext(replaceList.get(index+1));
+    private static Rule createChain(List<Rule> ruleList) {
+        ruleList.size();
+        for (int index=0;index< ruleList.size()-1;index++) {
+            ruleList.get(index).setNext(ruleList.get(index+1));
         }
-        return replaceList.get(0);
+        return ruleList.get(0);
     }
 }

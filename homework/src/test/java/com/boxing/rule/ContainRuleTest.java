@@ -6,39 +6,39 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class ReplaceContainTest {
-    private Replace replace;
+public class ContainRuleTest {
+    private Rule rule;
 
     @Before
     public void initObject() throws Exception {
         String[] containDefinedString = new String[] {"Fizz","Whizz","Buzz"};
-        replace = new ReplaceContain(containDefinedString);
+        rule = new ContainRule(containDefinedString);
     }
 
     @Test
     public void inputContainTheFirstDefinedNumberShouldReturnFizz() {
-        assertThat(replace.replace(32, new int[] {2, 3, 4, 5}), is("Fizz"));
+        assertThat(rule.rule(32, new int[]{2, 3, 4, 5}), is("Fizz"));
     }
 
     @Test
     public void inputContainTheSecondDefinedNumberExceptTheFirstShouldReturnWhizz() {
-        assertThat(replace.replace(31, new int[] {2, 3, 4, 5}), is("Whizz"));
+        assertThat(rule.rule(31, new int[]{2, 3, 4, 5}), is("Whizz"));
     }
 
     @Test
     public void inputContainTheThirdDefinedNumberExceptTheFirstAndSecondShouldReturnBuzz() {
-        assertThat(replace.replace(41, new int[] {2, 3, 4, 5}), is("Buzz"));
+        assertThat(rule.rule(41, new int[]{2, 3, 4, 5}), is("Buzz"));
     }
 
     @Test
     public void inputNotContainTheDefinedNumberShouldReturnNext() {
-        Replace next=new Replace() {
+        Rule next=new Rule() {
             @Override
-            public String replace(int number, int[] specialNumbers) {
+            public String rule(int number, int[] specialNumbers) {
                 return "Next";
             }
         };
-        replace.setNext(next);
-        assertThat(replace.replace(51, new int[]{2, 3, 4, 5}), is("Next"));
+        rule.setNext(next);
+        assertThat(rule.rule(51, new int[]{2, 3, 4, 5}), is("Next"));
     }
 }

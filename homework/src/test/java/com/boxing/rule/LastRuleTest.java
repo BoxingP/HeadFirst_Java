@@ -6,9 +6,9 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 
-public class ReturnNumberTest {
+public class LastRuleTest {
     @Test
     public void inputNumberShouldReturnItself() {
-        assertThat(new ReturnNumber().replace(11, null), is("11"));
+        assertThat(new LastRule().rule(11, null), is("11"));
     }
 }

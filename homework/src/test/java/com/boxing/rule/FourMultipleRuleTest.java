@@ -6,33 +6,33 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class ReplaceFourMultipleTest {
-    private Replace replace;
+public class FourMultipleRuleTest {
+    private Rule rule;
 
     @Before
     public void initObject() {
-        replace = new ReplaceFourMultiple(new String[]{"Bingo"});
+        rule = new FourMultipleRule(new String[]{"Bingo"});
     }
 
     @Test
     public void inputIsCommonMultipleOfDefinedNumbersAmountIsFourShouldReturnBingo() {
-        assertThat(replace.replace(420, new int[] {3, 4, 7, 5}), is("Bingo"));
+        assertThat(rule.rule(420, new int[]{3, 4, 7, 5}), is("Bingo"));
     }
 
     @Test
     public void inputIsNotCommonMultipleOfDefinedNumbersAmountIsFourShouldReturnItself() {
-        assertThat(replace.replace(84, new int[] {3, 4, 7, 5}), is("Bingo"));
+        assertThat(rule.rule(84, new int[]{3, 4, 7, 5}), is("Bingo"));
     }
 
     @Test
     public void inputIsCommonMultipleOfDefinedNumbersAmountIsFiveShouldReturnNext() {
-        Replace next=new Replace() {
+        Rule next=new Rule() {
             @Override
-            public String replace(int number, int[] specialNumbers) {
+            public String rule(int number, int[] specialNumbers) {
                 return "Next";
             }
         };
-        replace.setNext(next);
-        assertThat(replace.replace(1260, new int[] {3, 4, 7, 5, 9}), is("Next"));
+        rule.setNext(next);
+        assertThat(rule.rule(1260, new int[]{3, 4, 7, 5, 9}), is("Next"));
     }
 }

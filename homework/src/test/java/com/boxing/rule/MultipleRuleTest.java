@@ -11,14 +11,14 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.runners.Parameterized.*;
 
-public class ReplaceMultipleTest {
+public class MultipleRuleTest {
     private String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
-    private Replace replace = new ReplaceMultiple(multipleDefinedString);
+    private Rule rule = new MultipleRule(multipleDefinedString);
 
     @RunWith(Parameterized.class)
     public static class ReplaceOnlyOneDefinedNumberMultipleTest {
         String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
-        Replace replace = new ReplaceMultiple(multipleDefinedString);
+        Rule rule = new MultipleRule(multipleDefinedString);
         @Parameters
         public static Collection createInputIsOnlyMultipleOfOneDefinedNumber() {
             return Arrays.asList(new Object[][] {
@@ -37,14 +37,14 @@ public class ReplaceMultipleTest {
 
         @Test
         public void inputIsOnlyMultipleOfOneDefinedNumberShouldReturnOneWord() {
-            assertThat(replace.replace(inputIsOnlyMultipleOfOneDefinedNumber, new int[] {3, 4, 7, 5}), is(oneMultipleTag));
+            assertThat(rule.rule(inputIsOnlyMultipleOfOneDefinedNumber, new int[]{3, 4, 7, 5}), is(oneMultipleTag));
         }
     }
 
     @RunWith(Parameterized.class)
     public static class ReplaceTwoDefinedNumbersMultipleTest {
         String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
-        Replace replace = new ReplaceMultiple(multipleDefinedString);
+        Rule rule = new MultipleRule(multipleDefinedString);
         @Parameters
         public static Collection createInputIsMultipleOfTwoDefinedNumbers() {
             return Arrays.asList(new Object[][] {
@@ -65,14 +65,14 @@ public class ReplaceMultipleTest {
 
         @Test
         public void inputIsMultipleOfTwoDefinedNumbersShouldReturnTwoWords() {
-            assertThat(replace.replace(inputIsMultipleOfTwoDefinedNumbers, new int[] {3, 4, 7, 5}), is(twoMultipleTag));
+            assertThat(rule.rule(inputIsMultipleOfTwoDefinedNumbers, new int[]{3, 4, 7, 5}), is(twoMultipleTag));
         }
     }
 
     @RunWith(Parameterized.class)
     public static class ReplaceThreeDefinedNumbersMultipleTest {
         String[] multipleDefinedString = new String[] {"Fizz","Buzz","Whizz","Murmur"};
-        Replace replace = new ReplaceMultiple(multipleDefinedString);
+        Rule rule = new MultipleRule(multipleDefinedString);
         @Parameters
         public static Collection createInputIsMultipleOfThreeDefinedNumbers() {
             return Arrays.asList(new Object[][] {
@@ -91,24 +91,24 @@ public class ReplaceMultipleTest {
 
         @Test
         public void inputIsMultipleOfThreeDefinedNumbersShouldReturnThreeWords() {
-            assertThat(replace.replace(inputIsMultipleOfThreeDefinedNumbers, new int[] {3, 4, 7, 5}), is(threeMultipleTag));
+            assertThat(rule.rule(inputIsMultipleOfThreeDefinedNumbers, new int[]{3, 4, 7, 5}), is(threeMultipleTag));
         }
     }
 
     @Test
     public void inputIsMultipleOfFourDefinedNumbersShouldReturnFizzBuzzWhizzMurmur() {
-        assertThat(replace.replace(1260, new int[] {3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
+        assertThat(rule.rule(1260, new int[]{3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
     }
 
     @Test
     public void inputNotMultipleOfAnyDefinedNumberShouldReturnNext() {
-        Replace next=new Replace() {
+        Rule next=new Rule() {
             @Override
-            public String replace(int number, int[] specialNumbers) {
+            public String rule(int number, int[] specialNumbers) {
                 return "Next";
             }
         };
-        replace.setNext(next);
-        assertThat(replace.replace(11, new int[] {3, 4, 7, 5}), is("Next"));
+        rule.setNext(next);
+        assertThat(rule.rule(11, new int[]{3, 4, 7, 5}), is("Next"));
     }
 }

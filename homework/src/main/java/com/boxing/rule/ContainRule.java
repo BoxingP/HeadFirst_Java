@@ -1,13 +1,13 @@
 package com.boxing.rule;
 
-public class ReplaceContain extends Replace {
+public class ContainRule extends Rule {
     private String[] containDefinedString;
 
-    public ReplaceContain(String[] containDefinedString) {
+    public ContainRule(String[] containDefinedString) {
         this.containDefinedString = containDefinedString;
     }
 
-    public String replace(int number, int[] specialNumbers) {
+    public String rule(int number, int[] specialNumbers) {
         for (int index = 0; index < Math.min(specialNumbers.length,containDefinedString.length); index++) {
             if (containDefinedNumber(number, specialNumbers, index)) {
                 return containDefinedString[index];

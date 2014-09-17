@@ -1,13 +1,13 @@
 package com.boxing.rule;
 
-public class ReplaceMultiple extends Replace {
+public class MultipleRule extends Rule {
     private String[] multipleDefinedString;
 
-    public ReplaceMultiple(String[] multipleDefinedString){
+    public MultipleRule(String[] multipleDefinedString){
         this.multipleDefinedString = multipleDefinedString;
     }
 
-    public String replace(int number, int[] specialNumbers) {
+    public String rule(int number, int[] specialNumbers) {
         StringBuilder sequence = new StringBuilder();
 
         for (int index=0;index< specialNumbers.length;index++) {

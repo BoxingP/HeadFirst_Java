@@ -8,30 +8,30 @@
         <constructor-arg type="int" value="4"/>
     </bean>
 
-    <bean id="replaceRuleList" class="java.util.ArrayList">
+    <bean id="ruleList" class="java.util.ArrayList">
         <constructor-arg>
             <list>
-                <ref bean="replaceContain"/><ref bean="replaceFourMultiple"/><ref bean="replaceMultiple"/><ref bean="returnNumber"/>
+                <ref bean="containRule"/><ref bean="fourMultipleRule"/><ref bean="multipleRule"/><ref bean="lastRule"/>
             </list>
         </constructor-arg>
     </bean>
 
-    <bean id="replaceContain" class="com.boxing.rule.ReplaceContain">
+    <bean id="containRule" class="com.boxing.rule.ContainRule">
         <constructor-arg type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
-        <property name="next" ref="replaceFourMultiple"/>
+        <property name="next" ref="fourMultipleRule"/>
     </bean>
 
-    <bean id="replaceFourMultiple" class="com.boxing.rule.ReplaceFourMultiple">
+    <bean id="fourMultipleRule" class="com.boxing.rule.FourMultipleRule">
         <constructor-arg type="java.lang.String[]" value="Bingo"/>
-        <property name="next" ref="replaceMultiple"/>
+        <property name="next" ref="multipleRule"/>
     </bean>
 
-    <bean id="replaceMultiple" class="com.boxing.rule.ReplaceMultiple">
+    <bean id="multipleRule" class="com.boxing.rule.MultipleRule">
         <constructor-arg type="java.lang.String[]" value="Fizz,Buzz,Whizz,Murmur"/>
-        <property name="next" ref="returnNumber"/>
+        <property name="next" ref="lastRule"/>
     </bean>
 
-    <bean id="returnNumber" class="com.boxing.rule.ReturnNumber">
+    <bean id="lastRule" class="com.boxing.rule.LastRule">
     </bean>
 
 </beans>

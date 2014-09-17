@@ -16,23 +16,23 @@ public class FourMultipleRuleTest {
 
     @Test
     public void inputIsCommonMultipleOfDefinedNumbersAmountIsFourShouldReturnBingo() {
-        assertThat(rule.rule(420, new int[]{3, 4, 7, 5}), is("Bingo"));
+        assertThat(rule.replace(420, new int[]{3, 4, 7, 5}), is("Bingo"));
     }
 
     @Test
     public void inputIsNotCommonMultipleOfDefinedNumbersAmountIsFourShouldReturnItself() {
-        assertThat(rule.rule(84, new int[]{3, 4, 7, 5}), is("Bingo"));
+        assertThat(rule.replace(84, new int[]{3, 4, 7, 5}), is("Bingo"));
     }
 
     @Test
     public void inputIsCommonMultipleOfDefinedNumbersAmountIsFiveShouldReturnNext() {
         Rule next = new Rule() {
             @Override
-            public String rule(int number, int[] specialNumbers) {
+            public String replace(int number, int[] specialNumbers) {
                 return "Next";
             }
         };
         rule.setNext(next);
-        assertThat(rule.rule(1260, new int[]{3, 4, 7, 5, 9}), is("Next"));
+        assertThat(rule.replace(1260, new int[]{3, 4, 7, 5, 9}), is("Next"));
     }
 }

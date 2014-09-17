@@ -27,7 +27,7 @@ public class FizzBuzzWhizz {
 
         Rule chain = createChain(initRuleList());
         for (int number = 1; number < 101; number++) {
-            String result = chain.rule(number, specialNumbers);
+            String result = chain.replace(number, specialNumbers);
             inputAndOutput.printOutput(result);
         }
     }

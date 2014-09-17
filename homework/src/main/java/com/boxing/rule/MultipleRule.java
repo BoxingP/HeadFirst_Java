@@ -7,7 +7,7 @@ public class MultipleRule extends Rule {
         this.multipleDefinedString = multipleDefinedString;
     }
 
-    public String rule(int number, int[] specialNumbers) {
+    public String replace(int number, int[] specialNumbers) {
         StringBuilder sequence = new StringBuilder();
 
         for (int index = 0; index < specialNumbers.length; index++) {

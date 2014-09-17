@@ -38,7 +38,7 @@ public class MultipleRuleTest {
 
         @Test
         public void inputIsOnlyMultipleOfOneDefinedNumberShouldReturnOneWord() {
-            assertThat(rule.rule(inputIsOnlyMultipleOfOneDefinedNumber, new int[]{3, 4, 7, 5}), is(oneMultipleTag));
+            assertThat(rule.replace(inputIsOnlyMultipleOfOneDefinedNumber, new int[]{3, 4, 7, 5}), is(oneMultipleTag));
         }
     }
 
@@ -67,7 +67,7 @@ public class MultipleRuleTest {
 
         @Test
         public void inputIsMultipleOfTwoDefinedNumbersShouldReturnTwoWords() {
-            assertThat(rule.rule(inputIsMultipleOfTwoDefinedNumbers, new int[]{3, 4, 7, 5}), is(twoMultipleTag));
+            assertThat(rule.replace(inputIsMultipleOfTwoDefinedNumbers, new int[]{3, 4, 7, 5}), is(twoMultipleTag));
         }
     }
 
@@ -94,24 +94,24 @@ public class MultipleRuleTest {
 
         @Test
         public void inputIsMultipleOfThreeDefinedNumbersShouldReturnThreeWords() {
-            assertThat(rule.rule(inputIsMultipleOfThreeDefinedNumbers, new int[]{3, 4, 7, 5}), is(threeMultipleTag));
+            assertThat(rule.replace(inputIsMultipleOfThreeDefinedNumbers, new int[]{3, 4, 7, 5}), is(threeMultipleTag));
         }
     }
 
     @Test
     public void inputIsMultipleOfFourDefinedNumbersShouldReturnFizzBuzzWhizzMurmur() {
-        assertThat(rule.rule(1260, new int[]{3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
+        assertThat(rule.replace(1260, new int[]{3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
     }
 
     @Test
     public void inputNotMultipleOfAnyDefinedNumberShouldReturnNext() {
         Rule next = new Rule() {
             @Override
-            public String rule(int number, int[] specialNumbers) {
+            public String replace(int number, int[] specialNumbers) {
                 return "Next";
             }
         };
         rule.setNext(next);
-        assertThat(rule.rule(11, new int[]{3, 4, 7, 5}), is("Next"));
+        assertThat(rule.replace(11, new int[]{3, 4, 7, 5}), is("Next"));
     }
 }

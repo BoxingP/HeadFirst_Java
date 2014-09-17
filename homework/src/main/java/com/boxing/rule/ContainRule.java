@@ -7,7 +7,7 @@ public class ContainRule extends Rule {
         this.containDefinedString = containDefinedString;
     }
 
-    public String rule(int number, int[] specialNumbers) {
+    public String replace(int number, int[] specialNumbers) {
         for (int index = 0; index < Math.min(specialNumbers.length, containDefinedString.length); index++) {
             if (containDefinedNumber(number, specialNumbers, index)) {
                 return containDefinedString[index];

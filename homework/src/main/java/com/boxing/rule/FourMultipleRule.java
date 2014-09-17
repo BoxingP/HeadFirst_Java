@@ -7,7 +7,7 @@ public class FourMultipleRule extends Rule {
         this.multipleFourDefinedString = multipleFourDefinedString[0];
     }
 
-    public String rule(int number, int[] specialNumbers) {
+    public String replace(int number, int[] specialNumbers) {
         if (specialNumbers.length == 4) {
             for (int definedNumber : specialNumbers) {
                 if (number % definedNumber != 0) break;

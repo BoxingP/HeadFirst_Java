@@ -17,28 +17,28 @@ public class ContainRuleTest {
 
     @Test
     public void inputContainTheFirstDefinedNumberShouldReturnFizz() {
-        assertThat(rule.rule(32, new int[]{2, 3, 4, 5}), is("Fizz"));
+        assertThat(rule.replace(32, new int[]{2, 3, 4, 5}), is("Fizz"));
     }
 
     @Test
     public void inputContainTheSecondDefinedNumberExceptTheFirstShouldReturnWhizz() {
-        assertThat(rule.rule(31, new int[]{2, 3, 4, 5}), is("Whizz"));
+        assertThat(rule.replace(31, new int[]{2, 3, 4, 5}), is("Whizz"));
     }
 
     @Test
     public void inputContainTheThirdDefinedNumberExceptTheFirstAndSecondShouldReturnBuzz() {
-        assertThat(rule.rule(41, new int[]{2, 3, 4, 5}), is("Buzz"));
+        assertThat(rule.replace(41, new int[]{2, 3, 4, 5}), is("Buzz"));
     }
 
     @Test
     public void inputNotContainTheDefinedNumberShouldReturnNext() {
         Rule next = new Rule() {
             @Override
-            public String rule(int number, int[] specialNumbers) {
+            public String replace(int number, int[] specialNumbers) {
                 return "Next";
             }
         };
         rule.setNext(next);
-        assertThat(rule.rule(51, new int[]{2, 3, 4, 5}), is("Next"));
+        assertThat(rule.replace(51, new int[]{2, 3, 4, 5}), is("Next"));
     }
 }

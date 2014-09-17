@@ -16,10 +16,10 @@
 
     <bean id="multipleRule" class="com.boxing.rule.MultipleRule">
         <constructor-arg type="java.lang.String[]" value="Fizz,Buzz,Whizz"/>
-        <property name="next" ref="lastRule"/>
+        <property name="next" ref="returnNumberRule"/>
     </bean>
 
-    <bean id="lastRule" class="com.boxing.rule.LastRule">
+    <bean id="returnNumberRule" class="com.boxing.rule.ReturnNumberRule">
     </bean>
 
 </beans>

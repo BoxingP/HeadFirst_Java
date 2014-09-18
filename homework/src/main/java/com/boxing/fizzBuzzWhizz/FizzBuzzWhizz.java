@@ -5,6 +5,8 @@ import com.boxing.unit.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class FizzBuzzWhizz {
     private static ApplicationContext context;
 
@@ -24,7 +26,9 @@ public class FizzBuzzWhizz {
             throw new IllegalArgumentException("Only non repeating digits are allowed!");
         }
 
-        Rule chainEntrance = (Rule) context.getBean("containFirstNumberRule");
+        List<Rule> chain = (List<Rule>) context.getBean("chain");
+        Rule chainEntrance = chain.get(0);
+
         for (int number = 1; number < 101; number++) {
             String result = chainEntrance.replace(number, specialNumbers);
             inputAndOutput.printOutput(result);

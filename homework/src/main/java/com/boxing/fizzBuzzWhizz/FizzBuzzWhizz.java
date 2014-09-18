@@ -17,7 +17,7 @@ public class FizzBuzzWhizz {
     public static void main(String[] args) throws Exception {
         readConfig();
 
-        InputAndOutput inputAndOutput = new InputAndOutput();
+        InputAndOutput inputAndOutput = (InputAndOutput) context.getBean("inputAndOutput");
 
         int[] specialNumbers = new Converter().convert(args);
 

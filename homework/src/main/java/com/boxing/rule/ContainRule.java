@@ -1,24 +1,25 @@
 package com.boxing.rule;
 
 public class ContainRule extends Rule {
-    private String[] containSpecialString;
+    private String containSpecialString;
     private int index;
 
-    public ContainRule(String[] containSpecialString, int index) {
+    public ContainRule(String containSpecialString, int index) {
         this.containSpecialString = containSpecialString;
         this.index = index;
     }
 
     public String replace(int number, int[] specialNumbers) {
-        if (containSpecialNumber(number, specialNumbers, index)) {
-            return containSpecialString[index];
+        int specialNumber = specialNumbers[index];
+        if (containSpecialNumber(number, specialNumber)) {
+            return containSpecialString;
         }
         return doNext(number, specialNumbers);
     }
 
-    private static boolean containSpecialNumber(int number, int[] specialNumbers, int index) {
+    private static boolean containSpecialNumber(int number, int specialNumber) {
         String sequence = Integer.toString(number);
-        String character = Integer.toString(specialNumbers[index]);
+        String character = Integer.toString(specialNumber);
         return sequence.contains(character);
     }
 }

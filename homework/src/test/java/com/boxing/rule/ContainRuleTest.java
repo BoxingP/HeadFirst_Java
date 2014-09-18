@@ -11,7 +11,7 @@ public class ContainRuleTest {
 
     @Before
     public void initObject() throws Exception {
-        String[] containSpecialString = new String[]{"Fizz", "Whizz", "Buzz"};
+        String containSpecialString = "Fizz";
         rule = new ContainRule(containSpecialString,0);
     }
 

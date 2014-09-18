@@ -20,30 +20,30 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void testNumberWithSpecialNumbersAmountIsThreeShouldReturnCorrectString() throws Exception {
+    public void fifteenWithThreeSpecialNumbers_shouldReturn_buzz() throws Exception {
         System.setProperty("name", "fizz-config");
         String[] args = new String[]{"2", "3", "5"};
         FizzBuzzWhizz.main(args);
-        String[] outputList = output.toString().split("\\n");
-        int testNumber = 15;
-        assertThat(outputList[testNumber - 1], is("Buzz"));
+        String[] output = this.output.toString().split("\\n");
+        int index = 15 - 1;
+        assertThat(output[index], is("Buzz"));
     }
 
     @Test
-    public void testNumberWithSpecialNumbersAmountIsFourShouldReturnCorrectString() throws Exception {
+    public void fifteenWithFourSpecialNumbers_shouldReturn_buzz() throws Exception {
         System.setProperty("name", "fizzMuMu-config");
         String[] args = new String[]{"2", "3", "5", "7"};
         FizzBuzzWhizz.main(args);
-        String[] outputList = output.toString().split("\\n");
-        int testNumber = 15;
-        assertThat(outputList[testNumber - 1], is("Buzz"));
+        String[] output = this.output.toString().split("\\n");
+        int index = 15 - 1;
+        assertThat(output[index], is("Buzz"));
     }
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void specialNumbersContainNonNumericShouldThrowsAnException() throws Exception {
+    public void nonNumericInSpecialNumber_shouldThrows_numberFormatException() throws Exception {
         thrown.expect(NumberFormatException.class);
         thrown.expectMessage("Only number is allowed!");
         System.setProperty("name", "fizzMuMu-config");
@@ -52,7 +52,7 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void specialNumbersContainRepeatingDigitShouldThrowsAnException() throws Exception {
+    public void repeatingDigitInSpecialNumber_shouldThrows_IllegalArgumentException() throws Exception {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Only non repeating digits are allowed!");
         System.setProperty("name", "fizzMuMu-config");
@@ -61,7 +61,7 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void specialNumbersContainNonDigitShouldThrowsAnException() throws Exception {
+    public void nonDigitInSpecialNumber_shouldThrows_IllegalArgumentException() throws Exception {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Only non repeating digits are allowed!");
         System.setProperty("name", "fizzMuMu-config");

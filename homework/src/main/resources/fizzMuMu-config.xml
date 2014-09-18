@@ -41,7 +41,7 @@
     </bean>
 
     <bean id="fourMultipleRule" class="com.boxing.rule.FourMultipleRule">
-        <constructor-arg type="java.lang.String[]" value="Bingo"/>
+        <constructor-arg type="java.lang.String" value="Bingo"/>
         <property name="next" ref="multipleRule"/>
     </bean>
 

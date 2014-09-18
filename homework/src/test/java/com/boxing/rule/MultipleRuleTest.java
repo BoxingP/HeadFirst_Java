@@ -37,7 +37,7 @@ public class MultipleRuleTest {
         public String oneMultipleTag;
 
         @Test
-        public void inputIsOnlyMultipleOfOneSpecialNumberShouldReturnOneWord() {
+        public void multipleOfOneSpecialNumber_shouldReturn_oneWord() {
             assertThat(rule.replace(inputIsOnlyMultipleOfOneSpecialNumber, new int[]{3, 4, 7, 5}), is(oneMultipleTag));
         }
     }
@@ -66,7 +66,7 @@ public class MultipleRuleTest {
         public String twoMultipleTag;
 
         @Test
-        public void inputIsMultipleOfTwoSpecialNumbersShouldReturnTwoWords() {
+        public void multipleOfTwoSpecialNumbers_shouldReturn_twoWords() {
             assertThat(rule.replace(inputIsMultipleOfTwoSpecialNumbers, new int[]{3, 4, 7, 5}), is(twoMultipleTag));
         }
     }
@@ -93,18 +93,18 @@ public class MultipleRuleTest {
         public String threeMultipleTag;
 
         @Test
-        public void inputIsMultipleOfThreeSpecialNumbersShouldReturnThreeWords() {
+        public void multipleOfThreeSpecialNumbers_shouldReturn_threeWords() {
             assertThat(rule.replace(inputIsMultipleOfThreeSpecialNumbers, new int[]{3, 4, 7, 5}), is(threeMultipleTag));
         }
     }
 
     @Test
-    public void inputIsMultipleOfFourSpecialNumbersShouldReturnFizzBuzzWhizzMurmur() {
+    public void input1260_shouldReturn_fizzBuzzWhizzMurmur() {
         assertThat(rule.replace(1260, new int[]{3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
     }
 
     @Test
-    public void inputNotMultipleOfAnySpecialNumberShouldReturnNext() {
+    public void eleven_shouldGoTo_nextRule() {
         Rule next = new Rule() {
             @Override
             public String replace(int number, int[] specialNumbers) {

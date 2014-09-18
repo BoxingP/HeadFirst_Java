@@ -17,7 +17,7 @@ public class ConverterTest {
     }
 
     @Test
-    public void inputElementsIsNumbersShouldBeConvertedCorrectly() {
+    public void stringArray_shouldBeConverted_integerArray() {
         assertThat(converter.convert(new String[]{"2", "3", "4"}), is(new int[]{2, 3, 4}));
     }
 
@@ -25,7 +25,7 @@ public class ConverterTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void inputStringContainsOthersShouldThrowsException() {
+    public void stringArrayContainsNonNumeric_ShouldThrows_numberFormatException() {
         thrown.expect(NumberFormatException.class);
         thrown.expectMessage("Only number is allowed!");
         converter.convert(new String[]{"2", "3a", "4"});

@@ -16,12 +16,12 @@ public class ContainRuleTest {
     }
 
     @Test
-    public void inputContainTheFirstSpecialNumberShouldReturnFizz() {
+    public void thirtyTwo_shouldReturn_fizz() {
         assertThat(rule.replace(32, new int[]{2, 3, 4, 5}), is("Fizz"));
     }
 
     @Test
-    public void inputNotContainTheSpecialNumberShouldReturnNext() {
+    public void fiftyOne_shouldGoTo_nextRule() {
         Rule next = new Rule() {
             @Override
             public String replace(int number, int[] specialNumbers) {

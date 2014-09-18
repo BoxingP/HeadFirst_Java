@@ -19,7 +19,7 @@ public class InputAndOutputTest {
     }
 
     @Test
-    public void outputShouldReturnString() {
+    public void resultIsFizzBuzzWhizz_shouldReturn_fizzBuzzWhizz() {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         String separator = System.getProperty("line.separator");

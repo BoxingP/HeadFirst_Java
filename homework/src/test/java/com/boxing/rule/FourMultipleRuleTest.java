@@ -8,30 +8,31 @@ import static org.junit.Assert.assertThat;
 
 public class FourMultipleRuleTest {
     private Rule rule;
+    private Rule next = new Rule() {
+        @Override
+        public String replace(int number, int[] specialNumbers) {
+            return "Next";
+        }
+    };
 
     @Before
     public void initObject() {
-        rule = new FourMultipleRule(new String[]{"Bingo"});
+        rule = new FourMultipleRule("Bingo");
     }
 
     @Test
-    public void inputIsCommonMultipleOfSpecialNumbersAmountIsFourShouldReturnBingo() {
+    public void input420WithFourSpecialNumbers_shouldReturn_bingo() {
         assertThat(rule.replace(420, new int[]{3, 4, 7, 5}), is("Bingo"));
     }
 
     @Test
-    public void inputIsNotCommonMultipleOfSpecialNumbersAmountIsFourShouldReturnItself() {
-        assertThat(rule.replace(84, new int[]{3, 4, 7, 5}), is("Bingo"));
+    public void input84WithFourSpecialNumbers_shouldGoTo_nextRule() {
+        rule.setNext(next);
+        assertThat(rule.replace(84, new int[]{3, 4, 7, 5}), is("Next"));
     }
 
     @Test
-    public void inputIsCommonMultipleOfSpecialNumbersAmountIsFiveShouldReturnNext() {
-        Rule next = new Rule() {
-            @Override
-            public String replace(int number, int[] specialNumbers) {
-                return "Next";
-            }
-        };
+    public void input1260WithFiveSpecialNumbers_shouldGoTo_nextRule() {
         rule.setNext(next);
         assertThat(rule.replace(1260, new int[]{3, 4, 7, 5, 9}), is("Next"));
     }

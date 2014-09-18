@@ -20,7 +20,7 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void testNumberWithDefinedNumbersAmountIsThreeShouldReturnCorrectString() throws Exception {
+    public void testNumberWithSpecialNumbersAmountIsThreeShouldReturnCorrectString() throws Exception {
         System.setProperty("name", "fizz-config");
         String[] args = new String[]{"2", "3", "5"};
         FizzBuzzWhizz.main(args);
@@ -30,7 +30,7 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void testNumberWithDefinedNumbersAmountIsFourShouldReturnCorrectString() throws Exception {
+    public void testNumberWithSpecialNumbersAmountIsFourShouldReturnCorrectString() throws Exception {
         System.setProperty("name", "fizzMuMu-config");
         String[] args = new String[]{"2", "3", "5", "7"};
         FizzBuzzWhizz.main(args);
@@ -43,7 +43,7 @@ public class FizzBuzzWhizzTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void definedNumbersContainNonNumericShouldThrowsAnException() throws Exception {
+    public void specialNumbersContainNonNumericShouldThrowsAnException() throws Exception {
         thrown.expect(NumberFormatException.class);
         thrown.expectMessage("Only number is allowed!");
         System.setProperty("name", "fizzMuMu-config");
@@ -52,7 +52,7 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void definedNumbersContainRepeatingDigitShouldThrowsAnException() throws Exception {
+    public void specialNumbersContainRepeatingDigitShouldThrowsAnException() throws Exception {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Only non repeating digits are allowed!");
         System.setProperty("name", "fizzMuMu-config");
@@ -61,7 +61,7 @@ public class FizzBuzzWhizzTest {
     }
 
     @Test
-    public void definedNumbersContainNonDigitShouldThrowsAnException() throws Exception {
+    public void specialNumbersContainNonDigitShouldThrowsAnException() throws Exception {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Only non repeating digits are allowed!");
         System.setProperty("name", "fizzMuMu-config");

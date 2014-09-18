@@ -11,24 +11,14 @@ public class ContainRuleTest {
 
     @Before
     public void initObject() throws Exception {
-        String[] containDefinedString = new String[]{"Fizz", "Whizz", "Buzz"};
-        rule = new ContainRule(containDefinedString,0);
+        String[] containSpecialString = new String[]{"Fizz", "Whizz", "Buzz"};
+        rule = new ContainRule(containSpecialString,0);
     }
 
     @Test
     public void inputContainTheFirstSpecialNumberShouldReturnFizz() {
         assertThat(rule.replace(32, new int[]{2, 3, 4, 5}), is("Fizz"));
     }
-
-//    @Test
-//    public void inputContainTheSecondDefinedNumberExceptTheFirstShouldReturnWhizz() {
-//        assertThat(rule.replace(31, new int[]{2, 3, 4, 5}), is("Whizz"));
-//    }
-//
-//    @Test
-//    public void inputContainTheThirdDefinedNumberExceptTheFirstAndSecondShouldReturnBuzz() {
-//        assertThat(rule.replace(41, new int[]{2, 3, 4, 5}), is("Buzz"));
-//    }
 
     @Test
     public void inputNotContainTheSpecialNumberShouldReturnNext() {

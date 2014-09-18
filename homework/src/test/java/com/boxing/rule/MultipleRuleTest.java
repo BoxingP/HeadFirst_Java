@@ -12,16 +12,16 @@ import static org.junit.Assert.assertThat;
 import static org.junit.runners.Parameterized.*;
 
 public class MultipleRuleTest {
-    private String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
-    private Rule rule = new MultipleRule(multipleDefinedString);
+    private String[] multipleSpecialString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
+    private Rule rule = new MultipleRule(multipleSpecialString);
 
     @RunWith(Parameterized.class)
-    public static class ReplaceOnlyOneDefinedNumberMultipleTest {
-        String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
-        Rule rule = new MultipleRule(multipleDefinedString);
+    public static class ReplaceOnlyOneSpecialNumberMultipleTest {
+        String[] multipleSpecialString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
+        Rule rule = new MultipleRule(multipleSpecialString);
 
         @Parameters
-        public static Collection createInputIsOnlyMultipleOfOneDefinedNumber() {
+        public static Collection createInputIsOnlyMultipleOfOneSpecialNumber() {
             return Arrays.asList(new Object[][]{
                     {9, "Fizz"},
                     {16, "Buzz"},
@@ -31,24 +31,24 @@ public class MultipleRuleTest {
         }
 
         @Parameter(0)
-        public int inputIsOnlyMultipleOfOneDefinedNumber;
+        public int inputIsOnlyMultipleOfOneSpecialNumber;
 
         @Parameter(1)
         public String oneMultipleTag;
 
         @Test
-        public void inputIsOnlyMultipleOfOneDefinedNumberShouldReturnOneWord() {
-            assertThat(rule.replace(inputIsOnlyMultipleOfOneDefinedNumber, new int[]{3, 4, 7, 5}), is(oneMultipleTag));
+        public void inputIsOnlyMultipleOfOneSpecialNumberShouldReturnOneWord() {
+            assertThat(rule.replace(inputIsOnlyMultipleOfOneSpecialNumber, new int[]{3, 4, 7, 5}), is(oneMultipleTag));
         }
     }
 
     @RunWith(Parameterized.class)
-    public static class ReplaceTwoDefinedNumbersMultipleTest {
-        String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
-        Rule rule = new MultipleRule(multipleDefinedString);
+    public static class ReplaceTwoSpecialNumbersMultipleTest {
+        String[] multipleSpecialString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
+        Rule rule = new MultipleRule(multipleSpecialString);
 
         @Parameters
-        public static Collection createInputIsMultipleOfTwoDefinedNumbers() {
+        public static Collection createInputIsMultipleOfTwoSpecialNumbers() {
             return Arrays.asList(new Object[][]{
                     {12, "FizzBuzz"},
                     {21, "FizzWhizz"},
@@ -60,24 +60,24 @@ public class MultipleRuleTest {
         }
 
         @Parameter(0)
-        public int inputIsMultipleOfTwoDefinedNumbers;
+        public int inputIsMultipleOfTwoSpecialNumbers;
 
         @Parameter(1)
         public String twoMultipleTag;
 
         @Test
-        public void inputIsMultipleOfTwoDefinedNumbersShouldReturnTwoWords() {
-            assertThat(rule.replace(inputIsMultipleOfTwoDefinedNumbers, new int[]{3, 4, 7, 5}), is(twoMultipleTag));
+        public void inputIsMultipleOfTwoSpecialNumbersShouldReturnTwoWords() {
+            assertThat(rule.replace(inputIsMultipleOfTwoSpecialNumbers, new int[]{3, 4, 7, 5}), is(twoMultipleTag));
         }
     }
 
     @RunWith(Parameterized.class)
-    public static class ReplaceThreeDefinedNumbersMultipleTest {
-        String[] multipleDefinedString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
-        Rule rule = new MultipleRule(multipleDefinedString);
+    public static class ReplaceThreeSpecialNumbersMultipleTest {
+        String[] multipleSpecialString = new String[]{"Fizz", "Buzz", "Whizz", "Murmur"};
+        Rule rule = new MultipleRule(multipleSpecialString);
 
         @Parameters
-        public static Collection createInputIsMultipleOfThreeDefinedNumbers() {
+        public static Collection createInputIsMultipleOfThreeSpecialNumbers() {
             return Arrays.asList(new Object[][]{
                     {280, "BuzzWhizzMurmur"},
                     {105, "FizzWhizzMurmur"},
@@ -87,24 +87,24 @@ public class MultipleRuleTest {
         }
 
         @Parameter(0)
-        public int inputIsMultipleOfThreeDefinedNumbers;
+        public int inputIsMultipleOfThreeSpecialNumbers;
 
         @Parameter(1)
         public String threeMultipleTag;
 
         @Test
-        public void inputIsMultipleOfThreeDefinedNumbersShouldReturnThreeWords() {
-            assertThat(rule.replace(inputIsMultipleOfThreeDefinedNumbers, new int[]{3, 4, 7, 5}), is(threeMultipleTag));
+        public void inputIsMultipleOfThreeSpecialNumbersShouldReturnThreeWords() {
+            assertThat(rule.replace(inputIsMultipleOfThreeSpecialNumbers, new int[]{3, 4, 7, 5}), is(threeMultipleTag));
         }
     }
 
     @Test
-    public void inputIsMultipleOfFourDefinedNumbersShouldReturnFizzBuzzWhizzMurmur() {
+    public void inputIsMultipleOfFourSpecialNumbersShouldReturnFizzBuzzWhizzMurmur() {
         assertThat(rule.replace(1260, new int[]{3, 4, 7, 5}), is("FizzBuzzWhizzMurmur"));
     }
 
     @Test
-    public void inputNotMultipleOfAnyDefinedNumberShouldReturnNext() {
+    public void inputNotMultipleOfAnySpecialNumberShouldReturnNext() {
         Rule next = new Rule() {
             @Override
             public String replace(int number, int[] specialNumbers) {

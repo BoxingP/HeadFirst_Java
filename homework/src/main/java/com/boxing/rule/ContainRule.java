@@ -2,16 +2,16 @@ package com.boxing.rule;
 
 public class ContainRule extends Rule {
     private String[] containSpecialString;
+    private int index;
 
-    public ContainRule(String[] containSpecialString) {
+    public ContainRule(String[] containSpecialString, int index) {
         this.containSpecialString = containSpecialString;
+        this.index = index;
     }
 
     public String replace(int number, int[] specialNumbers) {
-        for (int index = 0; index < Math.min(specialNumbers.length, containSpecialString.length); index++) {
-            if (containSpecialNumber(number, specialNumbers, index)) {
-                return containSpecialString[index];
-            }
+        if (containSpecialNumber(number, specialNumbers, index)) {
+            return containSpecialString[index];
         }
         return doNext(number, specialNumbers);
     }

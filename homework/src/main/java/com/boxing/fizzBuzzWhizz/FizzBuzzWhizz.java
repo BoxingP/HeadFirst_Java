@@ -24,7 +24,7 @@ public class FizzBuzzWhizz {
             throw new IllegalArgumentException("Only non repeating digits are allowed!");
         }
 
-        Rule chainEntrance = (Rule) context.getBean("containRule");
+        Rule chainEntrance = (Rule) context.getBean("containFirstNumberRule");
         for (int number = 1; number < 101; number++) {
             String result = chainEntrance.replace(number, specialNumbers);
             inputAndOutput.printOutput(result);

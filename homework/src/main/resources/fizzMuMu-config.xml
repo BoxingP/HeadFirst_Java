@@ -8,9 +8,22 @@
         <constructor-arg type="int" value="4"/>
     </bean>
 
-    <bean id="containRule" class="com.boxing.rule.ContainRule">
-        <constructor-arg type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
-        <property name="next" ref="fourMultipleRule"/>
+    <bean id="containFirstNumberRule" class="com.boxing.rule.ContainRule">
+        <constructor-arg index="0" type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
+        <constructor-arg index="1" type="int" value="0"/>
+        <property name="next" ref="containSecondNumberRule"/>
+    </bean>
+
+    <bean id="containSecondNumberRule" class="com.boxing.rule.ContainRule">
+        <constructor-arg index="0" type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
+        <constructor-arg index="1" type="int" value="1"/>
+        <property name="next" ref="containThirdNumberRule"/>
+    </bean>
+
+    <bean id="containThirdNumberRule" class="com.boxing.rule.ContainRule">
+        <constructor-arg index="0" type="java.lang.String[]" value="Fizz,Whizz,Buzz"/>
+        <constructor-arg index="1" type="int" value="2"/>
+        <property name="next" ref="multipleRule"/>
     </bean>
 
     <bean id="fourMultipleRule" class="com.boxing.rule.FourMultipleRule">

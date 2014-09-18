@@ -7,6 +7,9 @@
     <bean id="inputAndOutput" class="com.boxing.unit.InputAndOutput">
     </bean>
 
+    <bean id="converter" class="com.boxing.unit.Converter">
+    </bean>
+
     <bean id="validator" class="com.boxing.unit.Validator">
         <constructor-arg type="int" value="3"/>
     </bean>

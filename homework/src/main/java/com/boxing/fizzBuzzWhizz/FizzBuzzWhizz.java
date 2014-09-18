@@ -19,7 +19,8 @@ public class FizzBuzzWhizz {
 
         InputAndOutput inputAndOutput = (InputAndOutput) context.getBean("inputAndOutput");
 
-        int[] specialNumbers = new Converter().convert(args);
+        Converter converter = (Converter) context.getBean("converter");
+        int[] specialNumbers = converter.convert(args);
 
         Validator validator = (Validator) context.getBean("validator");
         if (!validator.isValid(specialNumbers)) {

@@ -9,13 +9,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class InputAndOutputTest {
+public class OutputTest {
 
-    private InputAndOutput inputAndOutput;
+    private Output output;
 
     @Before
     public void initObjects() {
-        inputAndOutput = new InputAndOutput();
+        output = new Output();
     }
 
     @Test
@@ -23,7 +23,7 @@ public class InputAndOutputTest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         String separator = System.getProperty("line.separator");
-        inputAndOutput.printOutput("FizzBuzzWhizz");
+        this.output.printOutput("FizzBuzzWhizz");
         assertThat(output.toString(), is("FizzBuzzWhizz" + separator));
     }
 } 

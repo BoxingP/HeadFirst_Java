@@ -1,6 +1,6 @@
 package com.boxing.unit;
 
-public class InputAndOutput {
+public class Output {
 
     public void printOutput(String result) {
         System.out.println(result);

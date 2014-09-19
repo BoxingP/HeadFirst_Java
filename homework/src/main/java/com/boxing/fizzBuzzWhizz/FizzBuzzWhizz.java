@@ -26,10 +26,10 @@ public class FizzBuzzWhizz {
     }
 
     private static void countOff(Rule rule, int[] specialNumbers, ApplicationContext context) {
-        InputAndOutput inputAndOutput = (InputAndOutput) context.getBean("inputAndOutput");
+        Output output = (Output) context.getBean("output");
         for (int number = 1; number < 101; number++) {
             String result = rule.replace(number, specialNumbers);
-            inputAndOutput.printOutput(result);
+            output.printOutput(result);
         }
     }
 }

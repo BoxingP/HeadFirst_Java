@@ -30,10 +30,4 @@ public class FourMultipleRuleTest {
         rule.setNext(next);
         assertThat(rule.replace(84, new int[]{3, 4, 7, 5}), is("Next"));
     }
-
-    @Test
-    public void input1260WithFiveSpecialNumbers_shouldGoTo_nextRule() {
-        rule.setNext(next);
-        assertThat(rule.replace(1260, new int[]{3, 4, 7, 5, 9}), is("Next"));
-    }
 }

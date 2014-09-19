@@ -8,13 +8,13 @@ public class FourMultipleRule extends Rule {
     }
 
     public String replace(int number, int[] specialNumbers) {
-        if (specialNumbers.length == 4) {
-            for (int specialNumber : specialNumbers) {
-                if (number % specialNumber != 0) return doNext(number, specialNumbers);
-            }
-            return multipleFourSpecialString;
-        }
-        return doNext(number, specialNumbers);
+        return isCommonMultiple(number, specialNumbers) ? multipleFourSpecialString:doNext(number, specialNumbers);
     }
 
+    private boolean isCommonMultiple(int number, int[] specialNumbers) {
+        for (int specialNumber:specialNumbers) {
+            if (number % specialNumber != 0) return false;
+        }
+        return true;
+    }
 }

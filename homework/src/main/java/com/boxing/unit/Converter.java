@@ -5,13 +5,17 @@ public class Converter {
     public int[] convert(String[] inputElements) {
         int[] outputElements = new int[inputElements.length];
         for (int i = 0; i < outputElements.length; i++) {
-            try {
-                outputElements[i] = Integer.parseInt(inputElements[i]);
-            } catch (NumberFormatException e) {
-                throw new NumberFormatException("Only number is allowed!");
-            }
+            outputElements[i]=convertStringToInteger(inputElements[i]);
         }
         return outputElements;
+    }
+
+    private int convertStringToInteger (String string) {
+        try {
+            return Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("Only number is allowed!");
+        }
     }
 }
 

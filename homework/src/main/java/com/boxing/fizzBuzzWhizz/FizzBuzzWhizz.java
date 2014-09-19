@@ -11,8 +11,6 @@ public class FizzBuzzWhizz {
     public static void main(String[] args) throws Exception {
         ApplicationContext context = new ClassPathXmlApplicationContext(System.getProperty("name") + ".xml");
 
-        InputAndOutput inputAndOutput = (InputAndOutput) context.getBean("inputAndOutput");
-
         Converter converter = (Converter) context.getBean("converter");
         int[] specialNumbers = converter.convert(args);
 
@@ -24,8 +22,13 @@ public class FizzBuzzWhizz {
         List<Rule> chain = (List<Rule>) context.getBean("chain");
         Rule chainEntrance = chain.get(0);
 
+        countOff(chainEntrance, specialNumbers, context);
+    }
+
+    private static void countOff(Rule rule, int[] specialNumbers, ApplicationContext context) {
+        InputAndOutput inputAndOutput = (InputAndOutput) context.getBean("inputAndOutput");
         for (int number = 1; number < 101; number++) {
-            String result = chainEntrance.replace(number, specialNumbers);
+            String result = rule.replace(number, specialNumbers);
             inputAndOutput.printOutput(result);
         }
     }

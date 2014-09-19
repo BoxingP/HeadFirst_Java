@@ -8,14 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.List;
 
 public class FizzBuzzWhizz {
-    private static ApplicationContext context;
-
-    private static void readConfig() throws Exception {
-        context = new ClassPathXmlApplicationContext(System.getProperty("name") + ".xml");
-    }
-
     public static void main(String[] args) throws Exception {
-        readConfig();
+        ApplicationContext context = new ClassPathXmlApplicationContext(System.getProperty("name") + ".xml");
 
         InputAndOutput inputAndOutput = (InputAndOutput) context.getBean("inputAndOutput");
 
